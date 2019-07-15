@@ -1,0 +1,33 @@
+{
+  "name": "jsax-rs",
+  "version": "0.0.0",
+  "description": "A JavaScript programming language API that provides support in creating web services according to the REST architectural pattern.",
+  "main": "dist/com/onsoft/jsaxrs.index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pechemann/jsax-rs.git"
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "JavaScript",
+    "Typescript",
+    "HATEOAS"
+  ],
+  "author": "Pascal ECHEMANN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pechemann/jsax-rs/issues"
+  },
+  "homepage": "https://github.com/pechemann/jsax-rs#readme",
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-ts": "^6.0.0-beta.22",
+    "typescript": "^3.4.5"
+  }
+}
