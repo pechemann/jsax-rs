@@ -25,11 +25,16 @@ $ npm install jsax-rs --save
 All JSAX-RS components have to be imported with the ES6 syntax:
 
 ```javascript
-import { HeliosTemplate } from 'jsax-rs';
+import { HttpStatusCode } from 'jsax-rs';
 
-public loadTemplates(): void {
-  this.templateService.getTemplates()
-                      .subscribe((templates: HeliosTemplate[]) => this.templates = templates);
+public find(id: string, res: Response): void {
+  this.searchService.find(id).subscribe((result: User) => {
+    if (result) {
+      res.send(result);
+    } else {
+      res.sendStatus(HttpStatusCode.NOT_FOUND);
+    }
+  });
 }
 ```
 

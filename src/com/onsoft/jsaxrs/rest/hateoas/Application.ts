@@ -6,7 +6,17 @@ import { State } from './State';
 export interface Application {
 
     /**
-     * The current state list of the application.
+     * The reference name of the application.
      */
-    state: Array<State>;
+    name: string;
+
+    /**
+     * The domain of the application.
+     */
+    domain?: string;
+    
+    /**
+     * The current state of the application.
+     */
+    state: State;
 }
