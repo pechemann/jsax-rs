@@ -1,11 +1,12 @@
 import { HttpMethod } from '../../../lang/net/http/HttpMethod';
-import { StateType } from '../StateType';
-import { Transition } from '../Transition';
+import { StateType } from '../../hateoas/StateType';
+import { State } from '../../hateoas/State';
+import { Transition } from '../../hateoas/Transition';
 
 /**
- * The default implementation of the <code>Transition</code> interface.
+ * The default implementation of the <code>State</code> interface.
  */
-export class TransitionImpl implements Transition {
+export class StateImpl implements State {
 
     /**
      * @inheritdoc
@@ -30,5 +31,15 @@ export class TransitionImpl implements Transition {
     /**
      * @inheritdoc
      */
+    public transitions?: Array<Transition> = null;
+    
+    /**
+     * @inheritdoc
+     */
     public context?: any = null;
+    
+    /**
+     * @inheritdoc
+     */
+    public rel?: string = null;
 }

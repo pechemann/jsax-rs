@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class StateImpl {
+class TransitionImpl {
     constructor() {
         this.name = null;
         this.type = null;
         this.resource = null;
         this.method = null;
-        this.transitions = null;
         this.context = null;
+        this.rel = null;
     }
 }
-exports.StateImpl = StateImpl;
+exports.TransitionImpl = TransitionImpl;

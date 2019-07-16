@@ -1,5 +1,5 @@
-import { State } from '../State';
-import { Application } from '../Application';
+import { State } from '../../hateoas/State';
+import { Application } from '../../hateoas/Application';
 
 /**
  * The default implementation fo the <code>Application</code> interface.
@@ -16,7 +16,6 @@ export class ApplicationImpl  implements Application {
      */
     public name: string = null;
 
-    
     /**
      * @inheritdoc
      */

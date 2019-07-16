@@ -31,4 +31,9 @@ export interface State {
      * The context that describes this state.
      */
     context?: any;
+    
+    /**
+     * The optional relation of this state.
+     */
+    rel?: string;
 }
