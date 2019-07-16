@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A JavaScript programming language API that provides support in creating web services according to the REST architectural pattern.",
   "main": "dist/com/onsoft/jsaxrs.index.js",
+  "types": "types/jsaxrs.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
