@@ -5,9 +5,9 @@
 export enum StateType {
     
     /**
-     * Indicates that the state represents an item of a collection.
+     * Indicates that the state represents an idempotent resource which has no has no modification parameters.
      */
-    ELEMENT = 'element',
+    INVARIANT = 'invariant',
     
     /**
      * Indicates that the state represents a collection.

@@ -14,6 +14,16 @@ export interface Application {
      * The domain of the application.
      */
     domain?: string;
+
+    /**
+     * The path to the application API.
+     */
+    apiPath?: string;
+
+    /**
+     * The version of the application API.
+     */
+    version?: string;
     
     /**
      * The current state of the application.

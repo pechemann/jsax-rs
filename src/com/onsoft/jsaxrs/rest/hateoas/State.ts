@@ -8,6 +8,11 @@ import { Transition } from './Transition';
 export interface State {
 
     /**
+     * The reference name forthis state.
+     */
+    name?: string;
+
+    /**
      * The type of this state.
      */
     type: StateType;

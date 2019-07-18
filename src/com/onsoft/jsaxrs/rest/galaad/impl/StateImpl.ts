@@ -11,7 +11,7 @@ export class StateImpl implements State {
     /**
      * @inheritdoc
      */
-    public name: string = null;
+    public name?: string = null;
 
     /**
      * @inheritdoc

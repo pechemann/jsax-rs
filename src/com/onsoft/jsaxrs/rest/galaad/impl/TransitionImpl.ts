@@ -10,11 +10,6 @@ export class TransitionImpl implements Transition {
     /**
      * @inheritdoc
      */
-    public name: string = null;
-
-    /**
-     * @inheritdoc
-     */
     public type: StateType = null;
 
     /**

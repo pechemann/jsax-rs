@@ -9,9 +9,6 @@
 export { HttpMethod } from './jsaxrs/lang/net/http/HttpMethod';
 export { HttpStatusCode } from './jsaxrs/lang/net/http/HttpStatusCode';
 
-//--> com/onsoft/jsaxrs/rest/gallad/config
-export { ApplicationConfig } from './jsaxrs/rest/galaad/config/ApplicationConfig';
-
 //--> com/onsoft/jsaxrs/rest/gallad/core
 export { Galaad } from './jsaxrs/rest/galaad/core/Galaad';
 
@@ -21,6 +18,19 @@ export { ApplicationImpl } from './jsaxrs/rest/galaad/impl/ApplicationImpl';
 export { HateoasContextImpl } from './jsaxrs/rest/galaad/impl/HateoasContextImpl';
 export { StateImpl } from './jsaxrs/rest/galaad/impl/StateImpl';
 export { TransitionImpl } from './jsaxrs/rest/galaad/impl/TransitionImpl';
+
+//--> com/onsoft/jsaxrs/rest/gallad/util
+export { ApplicationBuilder } from './jsaxrs/rest/galaad/util/ApplicationBuilder';
+export { StateBuilder } from './jsaxrs/rest/galaad/util/StateBuilder';
+
+//--> com/onsoft/jsaxrs/rest/gallad
+export { RsApplication } from './jsaxrs/rest/galaad/RsApplication';
+export { RsState } from './jsaxrs/rest/galaad/RsState';
+
+
+//--> com/onsoft/jsaxrs/rest/hateoas/config
+export { ApplicationConfig } from './jsaxrs/rest/hateoas/config/ApplicationConfig';
+export { StateConfig } from './jsaxrs/rest/hateoas/config/StateConfig';
 
 //--> com/onsoft/jsaxrs/rest/hateoas
 export { Application } from './jsaxrs/rest/hateoas/Application';

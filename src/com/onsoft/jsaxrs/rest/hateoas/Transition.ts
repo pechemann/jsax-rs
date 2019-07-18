@@ -7,11 +7,6 @@ import { StateType } from './StateType';
 export interface Transition {
 
     /**
-     * The name of this transition.
-     */
-    name: string;
-
-    /**
      * The type of the state associated with this transition.
      */
     type: StateType;

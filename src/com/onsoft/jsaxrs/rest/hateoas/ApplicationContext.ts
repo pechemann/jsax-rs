@@ -16,4 +16,18 @@ export interface ApplicationContext {
      * @returns {string} the application domain.
      */
     getDomain(): string;
+
+    /**
+     * Return the path of the application API.
+     * 
+     * @returns {string} the path of the application API.
+     */
+    getApiPath(): string;
+    
+    /**
+     * Return the version of the application API.
+     * 
+     * @returns {string} the version of the application API.
+     */
+    getApiVersion(): string;
 }
