@@ -5,17 +5,27 @@
 export enum StateType {
     
     /**
-     * Indicates that the state represents an idempotent resource which has no has no modification parameters.
+     * Indicates that the state represents a singular concept that is akin to an object instance or database record.
      */
-    INVARIANT = 'invariant',
+    DOCUMENT = 'document',
     
     /**
-     * Indicates that the state represents a collection.
+     * Indicates that the state represents a server-managed directory of resources.
      */
     COLLECTION = 'collection',
     
     /**
      * Indicates that the state represents a controller.
      */
-    CONTROLLER = 'controller'
+    CONTROLLER = 'controller',
+    
+    /**
+     * Indicates that the state represents a client-managed resource repository.
+     */
+    STORE = 'store',
+    
+    /**
+     * Indicates that the state represents an idempotent resource that does not specify mutators.
+     */
+    INVARIANT = 'invariant'
 }
