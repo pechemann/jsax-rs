@@ -15,7 +15,7 @@ class Galaad {
         this._initTransitionMap = null;
         this._initTransitions = null;
         this._initStates = new Array();
-        this._initTransitions = new Array();
+        this._initTransitions = new Map();
         this._initTransitionMap = new Array();
         this._stateBuilder = new StateBuilder_1.StateBuilder();
         this._transitionBuilder = new TransitionBuilder_1.TransitionBuilder();
@@ -29,9 +29,11 @@ class Galaad {
         }
         else {
             const appContext = new ApplicationContextImpl_1.ApplicationContextImpl(config);
+            this.setStatesTransitions();
             this._context = new HateoasContextImpl_1.HateoasContextImpl(appContext, this._initStates);
             this._initStates = null;
             this._initTransitionMap = null;
+            this._initTransitions.clear();
             this._initTransitions = null;
             this._stateBuilder = null;
             this._transitionBuilder = null;
@@ -52,8 +54,12 @@ class Galaad {
         }
         else {
             const transition = this._transitionBuilder.buildFromConfig(config);
-            console.log(transition);
-            this._initTransitions.push(transition);
+            const transitionRef = config.name;
+            const stateRef = config.stateRef;
+            if (stateRef) {
+                this.addTransitionMappper({ stateRef: stateRef, transitionRef: transitionRef });
+            }
+            this._initTransitions.set(transitionRef, transition);
         }
     }
     addTransitionMappper(mapper) {
@@ -61,12 +67,33 @@ class Galaad {
             throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.ILLEGAL_TRANSITION_OPERATION, 'You cannot map transitions after application context initialization.');
         }
         else {
-            console.log(mapper);
             this._initTransitionMap.push(mapper);
         }
     }
     getContext() {
         return this._context;
+    }
+    setStatesTransitions() {
+        this._initStates.forEach((state) => this.assignTransitionsToState(state));
+    }
+    assignTransitionsToState(state) {
+        const stateRef = state.name;
+        const mappingList = this._initTransitionMap.filter((mapping) => {
+            return mapping.stateRef === stateRef;
+        });
+        if (mappingList.length > 0) {
+            const transitions = new Array();
+            mappingList.forEach((mapping) => {
+                const transitionRef = mapping.transitionRef;
+                if (this._initTransitions.has(transitionRef)) {
+                    transitions.push(this._initTransitions.get(mapping.transitionRef));
+                }
+                else {
+                    throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_MAPPING, `Transition does no exists for the specified state: state=${stateRef}, transition=${transitionRef}`);
+                }
+            });
+            state.transitions = transitions;
+        }
     }
 }
 Galaad._instance = null;

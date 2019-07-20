@@ -27,5 +27,10 @@ export enum HateoasContextErrorCode {
     /**
      * Specifies that the current transition config is not valid.
      */
-    INVALID_TRANSITION_CONFIG = 'INVALID_TRANSITION_CONFIG'
+    INVALID_TRANSITION_CONFIG = 'INVALID_TRANSITION_CONFIG',
+    
+    /**
+     * Specifies that the current transition mapping is not valid.
+     */
+    INVALID_TRANSITION_MAPPING = 'INVALID_TRANSITION_MAPPING'
 }

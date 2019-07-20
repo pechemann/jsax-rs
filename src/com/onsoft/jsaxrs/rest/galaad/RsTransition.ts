@@ -38,10 +38,10 @@ function transitionMethodDecorator(target: any, methodName: string, descriptor: 
     return descriptor;
 }
 
-function transitionPropertyDecorator(target: any, keyName: string, config: TransitionConfig): any {
+function transitionPropertyDecorator(target: any, keyName: string, config: TransitionConfig): TransitionConfig {
     if (!config.name) {
         config.name = keyName;
     }
     Galaad.getInstance().registerTransitionConfig(config);
-    return null;
+    return config;
 }

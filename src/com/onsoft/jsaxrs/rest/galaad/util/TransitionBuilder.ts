@@ -36,7 +36,7 @@ export class TransitionBuilder {
                 transition.method = method
             }
         } else {
-            if (type === StateType.INVARIANT) {
+            if (type === StateType.CONTROLLER) {
                 transition.method = HttpMethod.POST;
             } else {
                 transition.method = HttpMethod.GET;

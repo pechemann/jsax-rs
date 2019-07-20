@@ -1,8 +1,8 @@
 /**
- * The <code>TransitionMapper</code> interface allows to declare links between <code>Transition</code> and
+ * The <code>TransitionMapping</code> interface allows to declare links between <code>Transition</code> and
  * <code>State</code> objects.
  */
-export interface TransitionMapper {
+export interface TransitionMapping {
 
     /**
      * The name reference of the state for which to associate this transition.

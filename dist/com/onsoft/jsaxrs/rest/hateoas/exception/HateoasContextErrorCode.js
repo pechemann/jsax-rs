@@ -7,4 +7,5 @@ var HateoasContextErrorCode;
     HateoasContextErrorCode["ILLEGAL_TRANSITION_OPERATION"] = "ILLEGAL_TRANSITION_OPERATION";
     HateoasContextErrorCode["INVALID_STATE_CONFIG"] = "INVALID_STATE_CONFIG";
     HateoasContextErrorCode["INVALID_TRANSITION_CONFIG"] = "INVALID_TRANSITION_CONFIG";
+    HateoasContextErrorCode["INVALID_TRANSITION_MAPPING"] = "INVALID_TRANSITION_MAPPING";
 })(HateoasContextErrorCode = exports.HateoasContextErrorCode || (exports.HateoasContextErrorCode = {}));

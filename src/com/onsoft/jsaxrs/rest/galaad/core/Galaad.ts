@@ -11,7 +11,7 @@ import { HateoasContextError } from '../../hateoas/exception/HateoasContextError
 import { HateoasContextErrorCode } from '../../hateoas/exception/HateoasContextErrorCode';
 import { Transition } from '../../hateoas/Transition';
 import { TransitionBuilder } from '../util/TransitionBuilder';
-import { TransitionMapper } from '../util/TransitionMapper';
+import { TransitionMapping } from '../util/TransitionMapping';
 
 /**
  * The <code>Galaad</code> class is the entry point of the HATEOAS API defined by the JSAX-RS spec.
@@ -34,19 +34,19 @@ export class Galaad {
     private _context: HateoasContext = null;
 
     /**
-     * The list of states registered into this  <code>Galaad</code> instance before context initialization.
+     * The list of states registered into this <code>Galaad</code> instance before context initialization.
      */
     private _initStates: Array<State> = null;
 
     /**
-     * The list of states registered into this  <code>Galaad</code> instance before context initialization.
+     * The list of states registered into this <code>Galaad</code> instance before context initialization.
      */
-    private _initTransitionMap: Array<TransitionMapper> = null;
+    private _initTransitionMap: Array<TransitionMapping> = null;
 
     /**
-     * The list of states registered into this  <code>Galaad</code> instance before context initialization.
+     * The map of states registered into this  <code>Galaad</code> instance before context initialization.
      */
-    private _initTransitions: Array<Transition> = null;
+    private _initTransitions: Map<string, Transition> = null;
 
     /**
      * The static reference to this singleton.
@@ -58,8 +58,8 @@ export class Galaad {
      */
     private constructor() {
         this._initStates = new Array<State>();
-        this._initTransitions = new Array<Transition>();
-        this._initTransitionMap = new Array<TransitionMapper>();
+        this._initTransitions = new Map<string, Transition>();
+        this._initTransitionMap = new Array<TransitionMapping>();
         this._stateBuilder = new StateBuilder();
         this._transitionBuilder = new TransitionBuilder();
     }
@@ -87,14 +87,17 @@ export class Galaad {
             );
         } else {
             const appContext: ApplicationContext = new ApplicationContextImpl(config);
+            this.setStatesTransitions();
             this._context = new HateoasContextImpl(appContext, this._initStates);
             this._initStates = null;
             this._initTransitionMap = null;
+            this._initTransitions.clear();
             this._initTransitions = null;
             this._stateBuilder = null;
             this._transitionBuilder = null;
         }
     }
+
 
     /**
      * Declare a state with the specified configuration.
@@ -126,29 +129,31 @@ export class Galaad {
             );
         } else {
             const transition: Transition = this._transitionBuilder.buildFromConfig(config);
-            console.log(transition)
-            this._initTransitions.push(transition);
+            const transitionRef: string = config.name;
+            const stateRef: string = config.stateRef;
+            if (stateRef) {
+                this.addTransitionMappper({ stateRef: stateRef, transitionRef: transitionRef });
+            }
+            this._initTransitions.set(transitionRef, transition);
         }
     }
 
     /**
      * Declare a mapping between a transition and a state.
      * 
-     * @param {TransitionMapper} mapper a mapping between a transition and a state.
+     * @param {TransitionMapping} mapper a mapping between a transition and a state.
      */
-    public addTransitionMappper(mapper: TransitionMapper): void {
+    public addTransitionMappper(mapper: TransitionMapping): void {
         if (this._context) {
             throw new HateoasContextError(
                 HateoasContextErrorCode.ILLEGAL_TRANSITION_OPERATION,
                 'You cannot map transitions after application context initialization.'
             );
         } else {
-            console.log(mapper)
             this._initTransitionMap.push(mapper);
         }
     }
     
-
     /**
      * Return the application context associated with this <code>Galaad</code> instance.
      * 
@@ -156,5 +161,31 @@ export class Galaad {
      */
     public getContext(): HateoasContext {
         return this._context;
+    }
+    
+    private setStatesTransitions(): void {
+        this._initStates.forEach((state: State)=> this.assignTransitionsToState(state));
+    }
+
+    private assignTransitionsToState(state: State): void {
+        const stateRef: string = state.name;
+        const mappingList: Array<TransitionMapping> = this._initTransitionMap.filter((mapping: TransitionMapping)=> {
+            return mapping.stateRef === stateRef;
+        });
+        if (mappingList.length > 0) {
+            const transitions: Array<Transition> = new Array<Transition>();
+            mappingList.forEach((mapping: TransitionMapping)=> {
+                const transitionRef: string = mapping.transitionRef;
+                if (this._initTransitions.has(transitionRef)) {
+                    transitions.push(this._initTransitions.get(mapping.transitionRef));
+                } else {
+                    throw new HateoasContextError(
+                        HateoasContextErrorCode.INVALID_TRANSITION_MAPPING,
+                     `Transition does no exists for the specified state: state=${stateRef}, transition=${transitionRef}`
+                    );
+                }
+            });
+            state.transitions = transitions;
+        }
     }
 }

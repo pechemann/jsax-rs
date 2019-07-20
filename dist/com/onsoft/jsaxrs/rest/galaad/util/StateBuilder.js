@@ -14,15 +14,15 @@ class StateBuilder {
         state.type = type;
         state.resource = config.resource;
         if (method) {
-            if (type === StateType_1.StateType.INVARIANT && method !== HttpMethod_1.HttpMethod.POST) {
-                throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_STATE_CONFIG, 'INVARIANT reources must be called with HTTP POST methods.');
+            if (type === StateType_1.StateType.CONTROLLER && method !== HttpMethod_1.HttpMethod.POST) {
+                throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_STATE_CONFIG, 'CONTROLLER reources must be called with HTTP POST methods.');
             }
             else {
                 state.method = method;
             }
         }
         else {
-            if (type === StateType_1.StateType.INVARIANT) {
+            if (type === StateType_1.StateType.CONTROLLER) {
                 state.method = HttpMethod_1.HttpMethod.POST;
             }
             else {

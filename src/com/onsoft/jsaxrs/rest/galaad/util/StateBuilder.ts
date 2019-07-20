@@ -28,16 +28,16 @@ export class StateBuilder {
         state.type = type;
         state.resource = config.resource;
         if (method) {
-            if (type === StateType.INVARIANT && method !== HttpMethod.POST) {
+            if (type === StateType.CONTROLLER && method !== HttpMethod.POST) {
                 throw new HateoasContextError(
                     HateoasContextErrorCode.INVALID_STATE_CONFIG,
-                    'INVARIANT reources must be called with HTTP POST methods.'
+                    'CONTROLLER reources must be called with HTTP POST methods.'
                 );
             } else {
                 state.method = method
             }
         } else {
-            if (type === StateType.INVARIANT) {
+            if (type === StateType.CONTROLLER) {
                 state.method = HttpMethod.POST;
             } else {
                 state.method = HttpMethod.GET;

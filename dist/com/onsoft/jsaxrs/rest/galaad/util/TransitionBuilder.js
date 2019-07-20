@@ -21,7 +21,7 @@ class TransitionBuilder {
             }
         }
         else {
-            if (type === StateType_1.StateType.INVARIANT) {
+            if (type === StateType_1.StateType.CONTROLLER) {
                 transition.method = HttpMethod_1.HttpMethod.POST;
             }
             else {

@@ -37,5 +37,5 @@ function transitionPropertyDecorator(target, keyName, config) {
         config.name = keyName;
     }
     Galaad_1.Galaad.getInstance().registerTransitionConfig(config);
-    return null;
+    return config;
 }
