@@ -17,5 +17,15 @@ export enum HateoasContextErrorCode {
     /**
      * Specifies an illegal transition operation.
      */
-    ILLEGAL_TRANSITION_OPERATION = 'ILLEGAL_TRANSITION_OPERATION'
+    ILLEGAL_TRANSITION_OPERATION = 'ILLEGAL_TRANSITION_OPERATION',
+    
+    /**
+     * Specifies that the current state config is not valid.
+     */
+    INVALID_STATE_CONFIG = 'INVALID_STATE_CONFIG',
+    
+    /**
+     * Specifies that the current transition config is not valid.
+     */
+    INVALID_TRANSITION_CONFIG = 'INVALID_TRANSITION_CONFIG'
 }

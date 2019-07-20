@@ -19,6 +19,9 @@ class HateoasContextImpl {
         result.state = this.STATES.get(stateName);
         return result;
     }
+    getGraph() {
+        return null;
+    }
     initStates(states) {
         states.forEach((state) => {
             const name = state.name;
@@ -28,10 +31,6 @@ class HateoasContextImpl {
             else {
             }
         });
-    }
-    initModel(context) {
-        const builder = new ApplicationBuilder_1.ApplicationBuilder();
-        return builder.build(context.getName(), context.getDomain());
     }
 }
 exports.HateoasContextImpl = HateoasContextImpl;

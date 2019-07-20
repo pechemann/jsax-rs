@@ -37,9 +37,4 @@ export class StateImpl implements State {
      * @inheritdoc
      */
     public context?: any = null;
-    
-    /**
-     * @inheritdoc
-     */
-    public rel?: string = null;
 }

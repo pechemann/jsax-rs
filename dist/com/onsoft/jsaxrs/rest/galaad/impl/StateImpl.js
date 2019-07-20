@@ -8,7 +8,6 @@ class StateImpl {
         this.method = null;
         this.transitions = null;
         this.context = null;
-        this.rel = null;
     }
 }
 exports.StateImpl = StateImpl;

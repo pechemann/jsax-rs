@@ -55,6 +55,13 @@ export class HateoasContextImpl implements HateoasContext {
     }
 
     /**
+     * @inheritdoc
+     */
+    public getGraph(): Array<State> {
+        return null;
+    }
+
+    /**
      * Initialize the states associated with this context.
      * 
      * @param {Array<State>} states the list of states associated with this context.
@@ -68,17 +75,5 @@ export class HateoasContextImpl implements HateoasContext {
                 // throw error
             }
         });
-    }
-    
-    /**
-     * Initialize the application object model this context.
-     * 
-     * @param {ApplicationContext} context the application context for this <code>HateoasContext</code> object.
-     * 
-     * @returns {Application} the application object model this context.
-     */
-    private initModel(context: ApplicationContext): Application {
-        const builder = new ApplicationBuilder();
-        return builder.build(context.getName(), context.getDomain());
     }
 }

@@ -6,7 +6,6 @@ class TransitionImpl {
         this.resource = null;
         this.method = null;
         this.context = null;
-        this.rel = null;
     }
 }
 exports.TransitionImpl = TransitionImpl;

@@ -26,9 +26,4 @@ export class TransitionImpl implements Transition {
      * @inheritdoc
      */
     public context?: any = null;
-
-    /**
-     * @inheritdoc
-     */
-    public rel?: string = null;
 }

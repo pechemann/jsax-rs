@@ -22,9 +22,12 @@ export { TransitionImpl } from './jsaxrs/rest/galaad/impl/TransitionImpl';
 //--> com/onsoft/jsaxrs/rest/gallad/util
 export { ApplicationBuilder } from './jsaxrs/rest/galaad/util/ApplicationBuilder';
 export { StateBuilder } from './jsaxrs/rest/galaad/util/StateBuilder';
+export { TransitionBuilder } from './jsaxrs/rest/galaad/util/TransitionBuilder';
+export { TransitionMapper } from './jsaxrs/rest/galaad/util/TransitionMapper';
 
 //--> com/onsoft/jsaxrs/rest/gallad
 export { RsApplication } from './jsaxrs/rest/galaad/RsApplication';
+export { RsMapTransition } from './jsaxrs/rest/galaad/RsMapTransition';
 export { RsState } from './jsaxrs/rest/galaad/RsState';
 export { RsTransition } from './jsaxrs/rest/galaad/RsTransition';
 

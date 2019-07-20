@@ -25,9 +25,4 @@ export interface Transition {
      * The context that describes the state associated with this transition.
      */
     context?: any;
-    
-    /**
-     * The optional relation of the state associated with this transition.
-     */
-    rel?: string;
 }
