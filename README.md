@@ -48,7 +48,13 @@ To execute all unit tests, use:
 $ grunt test
 ```
 
-## API Reference
+## Documentation
+
+### JASX-RS Reference
+
+The full [JASX-RS documentation](./docs/jasx-rs-reference/jasx-rs-reference.md) is located in the `docs/jasx-rs-reference` repository.
+
+### API Reference
 
 The API Reference documentation is not included into the JSAX-RS. To build the API reference documentation, use:
 
@@ -61,6 +67,7 @@ Documentation will be generated in the `docs/api-reference` repository.
 The documentation generator is [TypeDoc](http://typedoc.org/)
 
 ## License
+
 This JSAX-RS Project is licensed under MIT. Full license text is available in [LICENSE](LICENSE).
 
 ```

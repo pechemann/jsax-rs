@@ -21,6 +21,7 @@ export { TransitionImpl } from './jsaxrs/rest/galaad/impl/TransitionImpl';
 
 //--> com/onsoft/jsaxrs/rest/gallad/util
 export { ApplicationBuilder } from './jsaxrs/rest/galaad/util/ApplicationBuilder';
+export { ResourcePathUtil } from './jsaxrs/rest/galaad/util/ResourcePathUtil';
 export { StateBuilder } from './jsaxrs/rest/galaad/util/StateBuilder';
 export { TransitionBuilder } from './jsaxrs/rest/galaad/util/TransitionBuilder';
 export { TransitionMapping } from './jsaxrs/rest/galaad/util/TransitionMapping';

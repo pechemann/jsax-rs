@@ -32,7 +32,7 @@ types/temp
 #####################################
 
 # Ignore docs folder
-docs
+docs/api-reference
 
 #####################################
 # node_modules
