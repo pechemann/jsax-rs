@@ -2,6 +2,7 @@ import { State } from '../../hateoas/State';
 import { StateConfig } from '../../hateoas/config/StateConfig';
 import { StateImpl } from '../impl/StateImpl';
 import { Transition } from '../../hateoas/Transition';
+import { HttpMethod } from '../../../lang/net/http/HttpMethod';
 
 /**
  * A basic builder for creating new <code>State</code> objects, based on the Gallad default implementation.
@@ -21,7 +22,7 @@ export class StateBuilder {
         state.name = config.name;
         state.type = config.type;
         state.resource = config.resource;
-        state.method = config.method;
+        state.method = config.method || HttpMethod.GET;
         if (transitions) {
             state.transitions = transitions;
         }

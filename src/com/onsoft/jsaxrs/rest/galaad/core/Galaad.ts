@@ -6,6 +6,9 @@ import { HateoasContextImpl } from '../impl/HateoasContextImpl';
 import { State } from '../../hateoas/State';
 import { StateConfig } from '../../hateoas/config/StateConfig';
 import { StateBuilder } from '../util/StateBuilder';
+import { TransitionConfig } from '../../hateoas/config/TransitionConfig';
+import { HateoasContextError } from '../../hateoas/exception/HateoasContextError';
+import { HateoasContextErrorCode } from '../../hateoas/exception/HateoasContextErrorCode';
 
 /**
  * The <code>Galaad</code> class is the entry point of the HATEOAS API defined by the JSAX-RS spec.
@@ -57,7 +60,10 @@ export class Galaad {
      */
     public createContext(config: ApplicationConfig): void {
         if (this._context) {
-
+            throw new HateoasContextError(
+                HateoasContextErrorCode.ILLEGAL_CONTEXT_OVERRIDE,
+                'A context already exists for this application.'
+            );
         } else {
             const appContext: ApplicationContext = new ApplicationContextImpl(config);
             this._context = new HateoasContextImpl(appContext, this._initStates);
@@ -66,18 +72,39 @@ export class Galaad {
     }
 
     /**
-     * Declaare a state with the specified configuration.
+     * Declare a state with the specified configuration.
      * 
-     * @param {StateConfig} stateConfig the config of the state to declare.
+     * @param {StateConfig} config the config of the state to declare.
      */
-    public registerStateConfig(stateConfig: StateConfig): void {
+    public registerStateConfig(config: StateConfig): void {
         if (this._context) {
-
+            throw new HateoasContextError(
+                HateoasContextErrorCode.ILLEGAL_STATE_OPERATION,
+                'You cannot add state config after this application context initialization.'
+            );
         } else {
-            const state: State = this.STATE_BUILDER.buildFromConfig(stateConfig);
+            const state: State = this.STATE_BUILDER.buildFromConfig(config);
             this._initStates.push(state);
         }
     }
+
+    /**
+     * Declare a transition with the specified configuration.
+     * 
+     * @param {TransitionConfig} config the config of the transition to declare.
+     */
+    public registerTransitionConfig(config: TransitionConfig): void {
+        if (this._context) {
+            throw new HateoasContextError(
+                HateoasContextErrorCode.ILLEGAL_TRANSITION_OPERATION,
+                'You cannot add transition config after this application context initialization.'
+            );
+        } else {
+            console.log(config)
+        }
+    }
+
+    
 
     /**
      * Return the application context associated with this <code>Galaad</code> instance.

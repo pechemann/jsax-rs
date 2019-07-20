@@ -26,11 +26,15 @@ export { StateBuilder } from './jsaxrs/rest/galaad/util/StateBuilder';
 //--> com/onsoft/jsaxrs/rest/gallad
 export { RsApplication } from './jsaxrs/rest/galaad/RsApplication';
 export { RsState } from './jsaxrs/rest/galaad/RsState';
-
+export { RsTransition } from './jsaxrs/rest/galaad/RsTransition';
 
 //--> com/onsoft/jsaxrs/rest/hateoas/config
 export { ApplicationConfig } from './jsaxrs/rest/hateoas/config/ApplicationConfig';
 export { StateConfig } from './jsaxrs/rest/hateoas/config/StateConfig';
+export { TransitionConfig } from './jsaxrs/rest/hateoas/config/TransitionConfig';
+//--> com/onsoft/jsaxrs/rest/hateoas/exception
+export { HateoasContextError } from './jsaxrs/rest/hateoas/exception/HateoasContextError';
+export { HateoasContextErrorCode } from './jsaxrs/rest/hateoas/exception/HateoasContextErrorCode';
 
 //--> com/onsoft/jsaxrs/rest/hateoas
 export { Application } from './jsaxrs/rest/hateoas/Application';

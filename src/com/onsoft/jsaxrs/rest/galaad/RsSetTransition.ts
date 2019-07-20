@@ -2,7 +2,7 @@ import { Galaad } from './core/Galaad';
 import { ApplicationConfig } from '../hateoas/config/ApplicationConfig';
 
 /**
- * Provide class decoration to declare a new application.
+ * Provide class decoration to declare a new application state.
  * 
  * @param {ApplicationConfig} config the application declared by this decorator.
  */

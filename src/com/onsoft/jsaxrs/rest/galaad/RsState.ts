@@ -4,14 +4,14 @@ import { StateConfig } from '../hateoas/config/StateConfig';
 /**
  * Provide method decoration to declare a new application state.
  * 
- * @param {StateConfig} stateConfig the config of the state declared by this decorator.
+ * @param {StateConfig} config the config of the state declared by this decorator.
  */
-export function RsState(stateConfig: StateConfig) {
+export function RsState(config: StateConfig) {
     return function(target: any, methodName: string, descriptor: any): any {
-        if (!stateConfig.name) {
-            stateConfig.name = methodName;
+        if (!config.name) {
+            config.name = methodName;
         }
-        Galaad.getInstance().registerStateConfig(stateConfig);
+        Galaad.getInstance().registerStateConfig(config);
         return descriptor;
     };
 };
