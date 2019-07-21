@@ -4,26 +4,38 @@ const ApplicationBuilder_1 = require("../util/ApplicationBuilder");
 const ResourcePathUtil_1 = require("../util/ResourcePathUtil");
 const HateoasContextErrorCode_1 = require("../../hateoas/exception/HateoasContextErrorCode");
 const HateoasContextError_1 = require("../../hateoas/exception/HateoasContextError");
+const StateUtil_1 = require("../util/StateUtil");
+const ApplicationUtil_1 = require("../util/ApplicationUtil");
 class HateoasContextImpl {
     constructor(context, states) {
         this.CONTEXT = null;
         this.STATES = null;
         this.APP_BUILDER = null;
         this.RESOURCE_PATH_UTIL = null;
+        this.STATE_UTIL = null;
+        this.APP_UTIL = null;
         this.CONTEXT = context;
         this.STATES = new Map();
         this.APP_BUILDER = new ApplicationBuilder_1.ApplicationBuilder();
         this.RESOURCE_PATH_UTIL = new ResourcePathUtil_1.ResourcePathUtil();
+        this.STATE_UTIL = new StateUtil_1.StateUtil();
+        this.APP_UTIL = new ApplicationUtil_1.ApplicationUtil();
         this.initStates(states);
     }
     getApplicationContext() {
         return this.CONTEXT;
     }
-    getApplicationState(stateName, parameters) {
+    getApplicationState(stateName) {
         const result = this.APP_BUILDER.buildFromContext(this.CONTEXT);
-        const state = Object.assign({}, this.STATES.get(stateName));
-        this.RESOURCE_PATH_UTIL.applySegmentParams(state, parameters);
-        result.state = state;
+        result.state = this.STATES.get(stateName);
+        return result;
+    }
+    getApplicationStateRepresentation(stateName, parameters) {
+        const result = this.APP_UTIL.createAppRepresentationFromContext(this.CONTEXT);
+        const stateRepresentation = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
+        stateRepresentation.resource =
+            this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
+        result.state = stateRepresentation;
         return result;
     }
     getGraph() {

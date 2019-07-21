@@ -21,11 +21,6 @@ class StateBuilder {
                 state.method = method;
             }
         }
-        else {
-            if (type === StateType_1.StateType.CONTROLLER) {
-                state.method = HttpMethod_1.HttpMethod.POST;
-            }
-        }
         if (transitions) {
             state.transitions = transitions;
         }

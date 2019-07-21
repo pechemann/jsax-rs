@@ -34,11 +34,13 @@ export class TransitionBuilder {
             } else {
                 transition.method = method
             }
-        } else {
+        }
+        /* Controllers can only be invoked with POST HTTP method:
+        else {
             if (type === StateType.CONTROLLER) {
                 transition.method = HttpMethod.POST;
             }
-        }
+        }*/
         return transition;
     }
 }

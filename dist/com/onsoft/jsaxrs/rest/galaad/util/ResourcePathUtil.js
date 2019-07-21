@@ -6,12 +6,13 @@ class ResourcePathUtil {
         this.AMP_CHAR = '&';
         this.EMPTY_STR = '';
     }
-    applySegmentParams(state, parameters) {
+    setSegmentParams(resourcePath, parameters) {
+        let result = resourcePath;
         if (parameters) {
             const keys = Object.keys(parameters);
-            const pathParts = state.resource.split(this.MARK_CHAR);
-            let result = pathParts[0];
+            const pathParts = resourcePath.split(this.MARK_CHAR);
             let queryParams = pathParts[1];
+            result = pathParts[0];
             keys.forEach((key) => {
                 result = result.replace(`:${key}`, parameters[key]);
             });
@@ -34,8 +35,8 @@ class ResourcePathUtil {
             if (result.endsWith(this.MARK_CHAR)) {
                 result = result.substring(0, result.length - 1);
             }
-            state.resource = result;
         }
+        return result;
     }
 }
 exports.ResourcePathUtil = ResourcePathUtil;

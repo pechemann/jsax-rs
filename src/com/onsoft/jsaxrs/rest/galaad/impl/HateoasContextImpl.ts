@@ -6,6 +6,8 @@ import { ApplicationBuilder } from '../util/ApplicationBuilder';
 import { ResourcePathUtil } from '../util/ResourcePathUtil';
 import { HateoasContextErrorCode } from '../../hateoas/exception/HateoasContextErrorCode';
 import { HateoasContextError } from '../../hateoas/exception/HateoasContextError';
+import { StateUtil } from '../util/StateUtil';
+import { ApplicationUtil } from '../util/ApplicationUtil';
 
 /**
  * The default implementation fo the <code>HateoasContext</code> interface.
@@ -31,6 +33,16 @@ export class HateoasContextImpl implements HateoasContext {
      * The reference to the utility that sets values to segments of a resource path.
      */
     private readonly RESOURCE_PATH_UTIL: ResourcePathUtil = null;
+    
+    /**
+     * The reference to the utility that creates states representations.
+     */
+    private readonly STATE_UTIL: StateUtil = null;
+
+    /**
+     * The reference to the utility that creates application states representations.
+     */
+    private readonly APP_UTIL: ApplicationUtil = null;
 
     /**
      * Create a new <code>HateoasContextImpl</code> instance.
@@ -43,6 +55,8 @@ export class HateoasContextImpl implements HateoasContext {
         this.STATES = new Map<string, State>();
         this.APP_BUILDER = new ApplicationBuilder();
         this.RESOURCE_PATH_UTIL = new ResourcePathUtil();
+        this.STATE_UTIL = new StateUtil();
+        this.APP_UTIL = new ApplicationUtil();
         this.initStates(states);
     }
 
@@ -56,11 +70,21 @@ export class HateoasContextImpl implements HateoasContext {
     /**
      * @inheritdoc
      */
-    public getApplicationState(stateName: string, parameters?: { [name: string]: any }): Application {
+    public getApplicationState(stateName: string): Application {
         const result: Application = this.APP_BUILDER.buildFromContext(this.CONTEXT);
-        const state: State = Object.assign({}, this.STATES.get(stateName));
-        this.RESOURCE_PATH_UTIL.applySegmentParams(state, parameters);
-        result.state = state;
+        result.state = this.STATES.get(stateName);
+        return result;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public getApplicationStateRepresentation(stateName: string, parameters?: { [name: string]: any }): any {
+        const result: any = this.APP_UTIL.createAppRepresentationFromContext(this.CONTEXT);
+        const stateRepresentation: any = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
+        stateRepresentation.resource = 
+            this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
+        result.state = stateRepresentation;
         return result;
     }
 

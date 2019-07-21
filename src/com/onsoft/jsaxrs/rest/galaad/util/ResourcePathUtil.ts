@@ -21,17 +21,22 @@ export class ResourcePathUtil {
     private readonly EMPTY_STR: string = '';
 
     /**
-     * A visitor function that applies segment parameters values to the resource path of the specified state.
+     * Returns a string that represents the specified resource path on which provided segment parameters have been
+     * injected.
      * 
-     * @param {State} state the state for which to apply segment parameters values.
-     * @param {{ [name: string]: any }} parameters optional properties used to set values of the state resource path.
+     * @param {string} resourcePath the resource path for which to apply segment parameters values.
+     * @param {{ [name: string]: any }} parameters optional properties used to set values of the resource path.
+     * 
+     * @returns {string} a string that represents the specified resource path on which segment parameters have been
+     *                   injected.
      */
-    public applySegmentParams(state: State, parameters?: { [name: string]: any }): void {
+    public setSegmentParams(resourcePath: string, parameters?: { [name: string]: any }): string {
+        let result: string = resourcePath;
         if (parameters) {
             const keys: Array<string> = Object.keys(parameters);
-            const pathParts: Array<string> = state.resource.split(this.MARK_CHAR);
-            let result: string = pathParts[0];
+            const pathParts: Array<string> = resourcePath.split(this.MARK_CHAR);
             let queryParams: string = pathParts[1];
+            result = pathParts[0];
             keys.forEach((key: string)=> {
                 result = result.replace(`:${key}`, parameters[key]);
             });
@@ -53,7 +58,7 @@ export class ResourcePathUtil {
             if (result.endsWith(this.MARK_CHAR)) {
                 result = result.substring(0, result.length - 1);
             }
-            state.resource = result;
         }
+        return result;
     }
 }

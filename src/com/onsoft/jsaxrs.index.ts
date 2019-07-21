@@ -21,8 +21,10 @@ export { TransitionImpl } from './jsaxrs/rest/galaad/impl/TransitionImpl';
 
 //--> com/onsoft/jsaxrs/rest/gallad/util
 export { ApplicationBuilder } from './jsaxrs/rest/galaad/util/ApplicationBuilder';
+export { ApplicationUtil } from './jsaxrs/rest/galaad/util/ApplicationUtil';
 export { ResourcePathUtil } from './jsaxrs/rest/galaad/util/ResourcePathUtil';
 export { StateBuilder } from './jsaxrs/rest/galaad/util/StateBuilder';
+export { StateUtil } from './jsaxrs/rest/galaad/util/StateUtil';
 export { TransitionBuilder } from './jsaxrs/rest/galaad/util/TransitionBuilder';
 export { TransitionMapping } from './jsaxrs/rest/galaad/util/TransitionMapping';
 
@@ -36,6 +38,7 @@ export { RsTransition } from './jsaxrs/rest/galaad/RsTransition';
 export { ApplicationConfig } from './jsaxrs/rest/hateoas/config/ApplicationConfig';
 export { StateConfig } from './jsaxrs/rest/hateoas/config/StateConfig';
 export { TransitionConfig } from './jsaxrs/rest/hateoas/config/TransitionConfig';
+
 //--> com/onsoft/jsaxrs/rest/hateoas/exception
 export { HateoasContextError } from './jsaxrs/rest/hateoas/exception/HateoasContextError';
 export { HateoasContextErrorCode } from './jsaxrs/rest/hateoas/exception/HateoasContextErrorCode';
