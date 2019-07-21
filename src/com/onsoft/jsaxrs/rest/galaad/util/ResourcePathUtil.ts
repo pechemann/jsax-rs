@@ -41,12 +41,11 @@ export class ResourcePathUtil {
                     const keyRef: string = `:${key}`;
                     if (value && value !== this.EMPTY_STR) {
                         queryParams = queryParams.replace(keyRef, `${key}=${value}`);
-                        queryParams += this.AMP_CHAR;
                     } else {
                         queryParams = queryParams.replace(keyRef, this.EMPTY_STR);
                     }
                 });
-                if (queryParams.endsWith(this.AMP_CHAR)) {
+                while (queryParams.endsWith(this.AMP_CHAR)) {
                     queryParams = queryParams.substring(0, queryParams.length - 1);
                 }
                 result += `?${queryParams}`;
