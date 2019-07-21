@@ -4,6 +4,8 @@ import { Application } from '../../hateoas/Application';
 import { State } from '../../hateoas/State';
 import { ApplicationBuilder } from '../util/ApplicationBuilder';
 import { ResourcePathUtil } from '../util/ResourcePathUtil';
+import { HateoasContextErrorCode } from '../../hateoas/exception/HateoasContextErrorCode';
+import { HateoasContextError } from '../../hateoas/exception/HateoasContextError';
 
 /**
  * The default implementation fo the <code>HateoasContext</code> interface.
@@ -42,7 +44,6 @@ export class HateoasContextImpl implements HateoasContext {
         this.APP_BUILDER = new ApplicationBuilder();
         this.RESOURCE_PATH_UTIL = new ResourcePathUtil();
         this.initStates(states);
-        
     }
 
     /**
@@ -57,7 +58,7 @@ export class HateoasContextImpl implements HateoasContext {
      */
     public getApplicationState(stateName: string, parameters?: { [name: string]: any }): Application {
         const result: Application = this.APP_BUILDER.buildFromContext(this.CONTEXT);
-        const state: State = this.STATES.get(stateName);
+        const state: State = Object.assign({}, this.STATES.get(stateName));
         this.RESOURCE_PATH_UTIL.applySegmentParams(state, parameters);
         result.state = state;
         return result;
@@ -67,7 +68,7 @@ export class HateoasContextImpl implements HateoasContext {
      * @inheritdoc
      */
     public getGraph(): Array<State> {
-        return null;
+        return Array.from(this.STATES.values());
     }
 
     /**
@@ -81,7 +82,10 @@ export class HateoasContextImpl implements HateoasContext {
             if (!this.STATES.has(name)) {
                 this.STATES.set(name, state);
             } else {
-                // throw error
+                throw new HateoasContextError(
+                    HateoasContextErrorCode.INVALID_STATE_CONFIG,
+                    `A state with the same name already exists in the application context: state=${name}`
+                );
             }
         });
     }

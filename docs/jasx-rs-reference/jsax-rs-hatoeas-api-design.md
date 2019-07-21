@@ -2,11 +2,11 @@
 
 # JSAX-RS HATOEAS API Design
 
-JSAX-RS HATOEAS API has been designed according to a basic rule introduces by Roy T. Fielding:
+JSAX-RS HATEOAS API has been designed with Roy T. Fielding's rule in mind:
 
 > A REST API should be entered with no prior knowledge beyond the initial URI and set of standardized media types that are appropriate for the intended audience. [REST APIs must be hypertext-driven](https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven)
 
-Since REST is not protocol dependent, our solution is not based upon traditional [RFC 5988 (web linking)](https://tools.ietf.org/html/rfc5988) structures, as shown below:
+Since REST is no protocol dependent, our solution is not based upon usual structures, such as [RFC 5988 (web linking)](https://tools.ietf.org/html/rfc5988):
 
 ```json
 {
@@ -24,11 +24,11 @@ Since REST is not protocol dependent, our solution is not based upon traditional
 }
 ```
 
-Instead, the JSAX-RS API is structured around three core entities:
+Instead, the JSAX-RS API has been thought around the three following core entities:
 
 - **application**: represents the entire set of functionalities defined for a distributed software
 - **state**: specifies the application state for the current client
 - **transition**: defines the way to navigate from the current step to another one
 
-All of these entities are exposed as interfaces to ensure weak coupling between all nodes over network. The following diagram shows cardinality relationships between these entities:
+All of these entities are exposed as interfaces to ensure weak coupling between the nodes of an application over different networks. The following diagram shows cardinality relationships between these entities:
 

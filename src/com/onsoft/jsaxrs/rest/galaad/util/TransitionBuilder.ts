@@ -1,6 +1,4 @@
-import { State } from '../../hateoas/State';
 import { TransitionConfig } from '../../hateoas/config/TransitionConfig';
-import { StateImpl } from '../impl/StateImpl';
 import { Transition } from '../../hateoas/Transition';
 import { HttpMethod } from '../../../lang/net/http/HttpMethod';
 import { StateType } from '../../hateoas/StateType';

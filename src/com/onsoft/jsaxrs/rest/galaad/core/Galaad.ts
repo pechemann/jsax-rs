@@ -163,10 +163,18 @@ export class Galaad {
         return this._context;
     }
     
+    /**
+     * Associate states and transitions.
+     */
     private setStatesTransitions(): void {
         this._initStates.forEach((state: State)=> this.assignTransitionsToState(state));
     }
 
+    /**
+     * Set all transitions of the specified state.
+     * 
+     * @param {State} state the state for which to set all transitions.
+     */
     private assignTransitionsToState(state: State): void {
         const stateRef: string = state.name;
         const mappingList: Array<TransitionMapping> = this._initTransitionMap.filter((mapping: TransitionMapping)=> {

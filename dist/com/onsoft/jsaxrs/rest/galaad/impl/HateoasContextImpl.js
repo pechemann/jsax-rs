@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ApplicationBuilder_1 = require("../util/ApplicationBuilder");
 const ResourcePathUtil_1 = require("../util/ResourcePathUtil");
+const HateoasContextErrorCode_1 = require("../../hateoas/exception/HateoasContextErrorCode");
+const HateoasContextError_1 = require("../../hateoas/exception/HateoasContextError");
 class HateoasContextImpl {
     constructor(context, states) {
         this.CONTEXT = null;
@@ -19,13 +21,13 @@ class HateoasContextImpl {
     }
     getApplicationState(stateName, parameters) {
         const result = this.APP_BUILDER.buildFromContext(this.CONTEXT);
-        const state = this.STATES.get(stateName);
+        const state = Object.assign({}, this.STATES.get(stateName));
         this.RESOURCE_PATH_UTIL.applySegmentParams(state, parameters);
         result.state = state;
         return result;
     }
     getGraph() {
-        return null;
+        return Array.from(this.STATES.values());
     }
     initStates(states) {
         states.forEach((state) => {
@@ -34,6 +36,7 @@ class HateoasContextImpl {
                 this.STATES.set(name, state);
             }
             else {
+                throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_STATE_CONFIG, `A state with the same name already exists in the application context: state=${name}`);
             }
         });
     }
