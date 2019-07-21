@@ -39,8 +39,6 @@ export class StateBuilder {
         } else {
             if (type === StateType.CONTROLLER) {
                 state.method = HttpMethod.POST;
-            } else {
-                state.method = HttpMethod.GET;
             }
         }
         if (transitions) {

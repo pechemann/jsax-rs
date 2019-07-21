@@ -45,5 +45,6 @@ export { Application } from './jsaxrs/rest/hateoas/Application';
 export { ApplicationContext } from './jsaxrs/rest/hateoas/ApplicationContext';
 export { HateoasContext } from './jsaxrs/rest/hateoas/HateoasContext';
 export { State } from './jsaxrs/rest/hateoas/State';
+export { LinkType } from './jsaxrs/rest/hateoas/LinkType';
 export { StateType } from './jsaxrs/rest/hateoas/StateType';
 export { Transition } from './jsaxrs/rest/hateoas/Transition';

@@ -36,5 +36,7 @@ var HateoasContextError_1 = require("./jsaxrs/rest/hateoas/exception/HateoasCont
 exports.HateoasContextError = HateoasContextError_1.HateoasContextError;
 var HateoasContextErrorCode_1 = require("./jsaxrs/rest/hateoas/exception/HateoasContextErrorCode");
 exports.HateoasContextErrorCode = HateoasContextErrorCode_1.HateoasContextErrorCode;
+var LinkType_1 = require("./jsaxrs/rest/hateoas/LinkType");
+exports.LinkType = LinkType_1.LinkType;
 var StateType_1 = require("./jsaxrs/rest/hateoas/StateType");
 exports.StateType = StateType_1.StateType;

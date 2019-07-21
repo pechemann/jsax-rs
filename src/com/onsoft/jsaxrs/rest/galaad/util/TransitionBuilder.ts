@@ -24,11 +24,12 @@ export class TransitionBuilder {
         const transition: Transition = new TransitionImpl();
         transition.type = type;
         transition.resource = config.resource;
+        transition.rel = config.rel;
         if (method) {
-            if (type === StateType.INVARIANT && method !== HttpMethod.POST) {
+            if (type === StateType.CONTROLLER && method !== HttpMethod.POST) {
                 throw new HateoasContextError(
                     HateoasContextErrorCode.INVALID_TRANSITION_CONFIG,
-                    'INVARIANT reources must be called with HTTP POST methods.'
+                    'CONTROLLER reources must be called with HTTP POST methods.'
                 );
             } else {
                 transition.method = method
@@ -36,8 +37,6 @@ export class TransitionBuilder {
         } else {
             if (type === StateType.CONTROLLER) {
                 transition.method = HttpMethod.POST;
-            } else {
-                transition.method = HttpMethod.GET;
             }
         }
         return transition;
