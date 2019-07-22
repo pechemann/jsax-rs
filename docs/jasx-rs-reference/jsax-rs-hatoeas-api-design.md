@@ -13,7 +13,7 @@ JSAX-RS HATEOAS API has been designed with Roy T. Fielding's rule in mind:
 Since REST is no protocol dependent, our solution is not based upon usual structures, such as [HTML5 (Link types)](https://www.w3.org/TR/html50/links.html#linkTypes), or [RFC 5988 (web linking)](https://tools.ietf.org/html/rfc5988):
 
 ---
-_Figure 1: Spring HATEOAS result sample_
+_Figure 1: Spring HATEOAS API result sample_
 
 ```json
 {
@@ -38,14 +38,14 @@ Instead, the JSAX-RS API has been thought around the three following core entiti
 All of these entities are exposed as interfaces to ensure weak coupling between the nodes of an application over different networks. The following diagram shows relationships between these entities:
 
 ---
-_Figure 2: JSAX-RS HATEOAS classes diagram_
+_Figure 2: JSAX-RS HATEOAS API classes diagram_
 
 ![JSAX-RS HATEOAS API](./assets/jsax-rs-hatoeas-api.png)
 
 Thanks to this architecture, we can build and expose useful information to navigate the application:
 
 ---
-_Figure 3: JSAX-RS HATEOAS result sample_
+_Figure 3: JSAX-RS HATEOAS API result sample_
 
 ```json
 {
