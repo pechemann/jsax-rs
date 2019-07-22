@@ -142,8 +142,15 @@ _Figure 6: transition to a controller resource_
 ...
 "state": [
     {
-        "type": "controller",
-        "resource": "/printers/5/print?documentId=ba756938-9e1c-4261-bed3-0898ad8e2a54"
+        "type": "collection",
+        "resource": "/documents/ba756938-9e1c-4261-bed3-0898ad8e2a54",
+        "method": "GET",
+        "transitions": [
+            {
+                "type": "controller",
+                "resource": "/printers/:printerId/print?:documentId"
+            }
+        ]
     }
 ]
 ...
