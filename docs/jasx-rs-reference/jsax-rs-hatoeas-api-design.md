@@ -73,7 +73,7 @@ _Figure 3: JSAX-RS HATEOAS API result sample_
 
 Hypermedia means that no API documentation is needed to navigate between the application states. So, beyond theory, **a real-life-working hypermedia model** is the main promise of the JSAX-RS HATEOAS API.
 
-The structure in _Figure 3_ follows a basic set of constraints that made it understandable by automatized systems. These rules are shown below:
+The structure in _Figure 3_ follows a basic set of constraints that made it understandable by automatized systems:
 
 - separation of concerns
 - uniform structure
