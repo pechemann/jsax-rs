@@ -8,7 +8,7 @@
 
 JSAX-RS HATEOAS API has been designed with Roy T. Fielding's rule in mind:
 
-> A REST API should be entered with no prior knowledge beyond the initial URI and set of standardized media types that are appropriate for the intended audience. [REST APIs must be hypertext-driven](https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven)
+> A REST API should be entered with no prior knowledge beyond the initial URI and set of standardized media types that are appropriate for the intended audience. [_REST APIs must be hypertext-driven_](https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven)
 
 Since REST is no protocol dependent, our solution is not based upon usual structures, such as [HTML5 (Link types)](https://www.w3.org/TR/html50/links.html#linkTypes), or [RFC 5988 (web linking)](https://tools.ietf.org/html/rfc5988):
 
@@ -86,7 +86,7 @@ Moreover, client knows where to find relevant information without the need for p
 
 ### Uniform structure
 
-The `self` and `users` property exposed in _Figure 1_ are good example of what <em>extra knowledge</em> means.
+The `self` and `users` property exposed in _Figure 1_ are good example of what _extra knowledge_ means.
 
 In this sample, client must know that `self` refers to the current state while `users` refers to a collection of the type of `User`. But, no specification exists for this structure. In addition, the application does not provide knowledge to turn that structure into information. Consequently, there is no possibility for a fully independent system to process these data without the help of Human beings.
 
