@@ -110,6 +110,4 @@ _Figure 4: transition without method definition_
 
 _Figure 5: transition with method definition_
 
-_Figure 4_ means that client have ot invoke the HTTP `OPTION` method to know what possible actions to do with this transtion. But, _Figure 5_ indicates that client must invoke the HTTP `GET` method to ensure expected behavior between current state the state specified by this transtion.
-
-## Web as Neuronal Network
+_Figure 4_ means that client have to invoke the HTTP `OPTION` method to know what possible actions to do with this transtion. But, _Figure 5_ indicates that client must invoke the HTTP `GET` method to ensure expected behavior between current state the state specified by this transtion.

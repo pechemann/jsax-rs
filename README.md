@@ -52,7 +52,7 @@ $ grunt test
 
 ### JASX-RS Reference
 
-The full [JASX-RS documentation](./docs/jasx-rs-reference/jasx-rs-reference.md) is located in the `docs/jasx-rs-reference` repository.
+The full [JASX-RS documentation](https://github.com/pechemann/jsax-rs/blob/master/docs/jasx-rs-reference/jsax-rs-reference.md) is located in the `docs/jasx-rs-reference` repository.
 
 ### API Reference
 
