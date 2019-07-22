@@ -105,21 +105,18 @@ For example, let us consider both following transitions:
 _Figure 4: transition without method definition_
 
 ```json
-...
 "transitions": [
     {
         "type": "collection",
         "resource": "/users"
     }
 ]
-...
 ```
 
 ---
 _Figure 5: transition with method definition_
 
 ```json
-...
 "transitions": [
     {
         "type": "collection",
@@ -127,7 +124,6 @@ _Figure 5: transition with method definition_
         "method": "GET"
     }
 ]
-...
 ```
 
 _Figure 4_ means that client have to invoke the HTTP `OPTION` method to know what possible actions to do with this transtion. But, _Figure 5_ indicates that client must invoke the HTTP `GET` method to ensure expected behavior between current state the state specified by this transtion.
@@ -139,7 +135,6 @@ _Figure 4_ means that client have to invoke the HTTP `OPTION` method to know wha
 _Figure 6: transition to a controller resource_
 
 ```json
-...
 "state": [
     {
         "type": "collection",
@@ -153,4 +148,4 @@ _Figure 6: transition to a controller resource_
         ]
     }
 ]
-...
+```
