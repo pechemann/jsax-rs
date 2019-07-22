@@ -68,20 +68,35 @@ _Figure 3: JSAX-RS HATEOAS result sample_
 
 ## Advantages
 
-The structure shown in _Figure 3_, even if it is still human-readable, has been designed to be non human-centric. This is a major point if we consider Fielding's quote above.
+Hypermedia means that no API documentation is needed to navigate between the application states. So, beyond theory, **a real-life-working hypermedia model** is the main promise of the JSAX-RS HATEOAS API.
 
+The structure in _Figure 3_ follows a basic set of constraints that made it understandable by automatized systems. These rules are shown below:
+
+- separation of concerns
 - uniform structure
 - semantic information
 
+Thus, even if it is still human-readable, JSAX-RS HATEOAS API has been designed to be non human-centric.
+
+### Separation of concerns
+
+By separating the HATEOAS data structure into three different components, JAX-RS ensure that the client is never responsible for determining the role of each item: the application state, or its possible transitions.
+
+Moreover, client knows where to find relevant information without the need for prior extra knowledge provided by third party tools (eg: app domain, type of resource, etc.).
+
 ### Uniform structure
 
-JSAX-RS HATEOAS API avoids the use of conventional knowledge provided by the application, or any global empiric practice. The `self` and `users` property exposed in _Figure 1_ are good example of these.
+The `self` and `users` property exposed in _Figure 1_ are good example of what <em>extra knowledge</em> means.
 
-In this sample, client must kon that `self` refers to the current state while `users` refers to a collection of the type of `User`. But, no specification exists for this structure. Moreover, the application does not provide knowledge to turn the structure into information, in a non human-centric way.
+In this sample, client must know that `self` refers to the current state while `users` refers to a collection of the type of `User`. But, no specification exists for this structure. In addition, the application does not provide knowledge to turn that structure into information. Consequently, there is no possibility for a fully independent system to process these data without the help of Human beings.
+
+But, the use of a uniform structure solves these issues. If the client 
 
 ### Semantic information
 
-Semantic information provides more flexibility without addition of contextual knowledge from the API. Let's consider the following transitions:
+Semantic information provides more flexibility without addition of contextual knowledge from the API. If the client and the API share an universal dictionary
+
+Let's consider the following transitions:
 
 ```json
 ...
