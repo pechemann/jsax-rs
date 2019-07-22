@@ -83,23 +83,23 @@ Thus, even if it is still human-readable, JSAX-RS HATEOAS API has been designed 
 
 ### Separation of concerns
 
-By separating the HATEOAS data structure into three different components, JAX-RS ensure that the client is never responsible for determining the role of each item: the application state, or its possible transitions.
+By separating the HATEOAS data structure into three different components, JSAX-RS ensure that client is never responsible for determining the role of each item: the application state, or its possible transitions.
 
 Moreover, client knows where to find relevant information without the need for prior extra knowledge provided by third party tools (eg: app domain, type of resource, etc.).
 
 ### Uniform structure
 
-The `self` and `users` property exposed in _Figure 1_ are good example of what _extra knowledge_ means.
+The `self` and `users` properties, exposed in _Figure 1_, are good example of what _extra knowledge_ means.
 
-In this sample, client must know that `self` refers to the current state while `users` refers to a collection of the type of `User`. But, no specification exists for this structure. In addition, the application does not provide knowledge to turn that structure into information. Consequently, there is no possibility for a fully independent system to process these data without the help of Human beings.
+In this example, client must know that `self` refers to the current state while `users` refers to a collection of the type of `User`. But, no specification exists for this structure. In addition, the application does not provide knowledge to turn that structure into information. Consequently, there is no possibility for a fully independent system to process these data without the help of Human beings.
 
-But, the use of a uniform structure solves these issues. If the client 
+But, the use of a uniform structure solves these issues. If the client [WIP]
 
 ### Semantic information
 
-Semantic information provides more flexibility without addition of contextual knowledge from the API. If the client and the API share an universal dictionary
+Semantic information provides more flexibility without addition of any contextual knowledge from the API. When the client and the API share a well-designed semantic dictionary, we can introduce more complex interactions between components and guarantee the API robustness.
 
-Let's consider the following transitions:
+For example, let us consider both following transitions:
 
 ---
 _Figure 4: transition without method definition_
@@ -131,3 +131,19 @@ _Figure 5: transition with method definition_
 ```
 
 _Figure 4_ means that client have to invoke the HTTP `OPTION` method to know what possible actions to do with this transtion. But, _Figure 5_ indicates that client must invoke the HTTP `GET` method to ensure expected behavior between current state the state specified by this transtion.
+
+
+[WIP]
+
+---
+_Figure 6: transition to a controller resource_
+
+```json
+...
+"state": [
+    {
+        "type": "controller",
+        "resource": "/printers/5/print?documentId=ba756938-9e1c-4261-bed3-0898ad8e2a54"
+    }
+]
+...
