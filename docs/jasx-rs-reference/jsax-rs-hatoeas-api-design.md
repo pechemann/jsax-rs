@@ -12,6 +12,9 @@ JSAX-RS HATEOAS API has been designed with Roy T. Fielding's rule in mind:
 
 Since REST is no protocol dependent, our solution is not based upon usual structures, such as [HTML5 (Link types)](https://www.w3.org/TR/html50/links.html#linkTypes), or [RFC 5988 (web linking)](https://tools.ietf.org/html/rfc5988):
 
+---
+_Figure 1: Spring HATEOAS result sample_
+
 ```json
 {
   "content":"Hello, User!",
@@ -26,8 +29,6 @@ Since REST is no protocol dependent, our solution is not based upon usual struct
 }
 ```
 
-_Figure 1: Spring HATEOAS result sample_
-
 Instead, the JSAX-RS API has been thought around the three following core entities:
 
 - **application**: represents the entire set of functionalities defined for a distributed software
@@ -36,11 +37,15 @@ Instead, the JSAX-RS API has been thought around the three following core entiti
 
 All of these entities are exposed as interfaces to ensure weak coupling between the nodes of an application over different networks. The following diagram shows relationships between these entities:
 
-![JSAX-RS HATEOAS API](./assets/jsax-rs-hatoeas-api.png)
-
+---
 _Figure 2: JSAX-RS HATEOAS classes diagram_
 
+![JSAX-RS HATEOAS API](./assets/jsax-rs-hatoeas-api.png)
+
 Thanks to this architecture, we can build and expose useful information to navigate the application:
+
+---
+_Figure 3: JSAX-RS HATEOAS result sample_
 
 ```json
 {
@@ -63,8 +68,6 @@ Thanks to this architecture, we can build and expose useful information to navig
     }
 }
 ```
-
-_Figure 3: JSAX-RS HATEOAS result sample_
 
 ## Advantages
 
@@ -98,6 +101,9 @@ Semantic information provides more flexibility without addition of contextual kn
 
 Let's consider the following transitions:
 
+---
+_Figure 4: transition without method definition_
+
 ```json
 ...
 "transitions": [
@@ -109,7 +115,8 @@ Let's consider the following transitions:
 ...
 ```
 
-_Figure 4: transition without method definition_
+---
+_Figure 5: transition with method definition_
 
 ```json
 ...
@@ -122,7 +129,5 @@ _Figure 4: transition without method definition_
 ]
 ...
 ```
-
-_Figure 5: transition with method definition_
 
 _Figure 4_ means that client have to invoke the HTTP `OPTION` method to know what possible actions to do with this transtion. But, _Figure 5_ indicates that client must invoke the HTTP `GET` method to ensure expected behavior between current state the state specified by this transtion.
