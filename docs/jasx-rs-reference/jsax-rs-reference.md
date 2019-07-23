@@ -13,7 +13,7 @@ JSAX-RS, JavaScript API for RESTful Web Services, is a programming language API 
 3. [REST API](#)
    - [HATOEAS API](#)
       1. [JSAX-RS Design](./jsax-rs-hatoeas-api-design.md)
-      1. [HateoasContext Interface](#)
+      1. [HateoasContext Interface](./jsax-rs-hateoascontext-interface.md)
       1. [Application Interface](#)
       1. [State Interface](#)
       1. [Transition Interface](#)
