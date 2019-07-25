@@ -20,7 +20,9 @@ Set up the JSAX-RS module with:
 $ npm install jsax-rs --save
 ```
 
-## Using Components
+## Documentation
+
+### Using Components
 
 All JSAX-RS components have to be imported with the ES6 syntax:
 
@@ -40,16 +42,6 @@ public find(id: string, res: Response): void {
 
 For a complete list of available components, please refer to the [API Reference](#api-reference) documentation.
 
-## Running Tests
-
-To execute all unit tests, use:
-
-```bash
-$ grunt test
-```
-
-## Documentation
-
 ### JASX-RS Reference
 
 The full [JASX-RS documentation](https://github.com/pechemann/jsax-rs/blob/master/docs/jasx-rs-reference/jsax-rs-reference.md) is located in the `docs/jasx-rs-reference` repository.
@@ -65,6 +57,15 @@ $ grunt doc
 Documentation will be generated in the `docs/api-reference` repository.
 
 The documentation generator is [TypeDoc](http://typedoc.org/)
+
+
+## Running Tests
+
+To execute all unit tests, use:
+
+```bash
+$ grunt test
+```
 
 ## License
 
