@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > [State Interface](./jsax-rs-state-interface.md)
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > State Interface
 
 # JSAX-RS: `State` Interface
 

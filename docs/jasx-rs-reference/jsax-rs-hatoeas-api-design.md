@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > [JSAX-RS Design](./jsax-rs-hatoeas-api-design.md)
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > JSAX-RS Design
 
 **[WIP]**
 

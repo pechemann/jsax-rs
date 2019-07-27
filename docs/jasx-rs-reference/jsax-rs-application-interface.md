@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > [Application Interface](./jsax-rs-application-interface.md)
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > Application Interface
 
 # JSAX-RS: `Application` Interface
 

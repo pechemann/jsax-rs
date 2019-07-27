@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > [JSAX-RS Galaad Framework: Overview](./jsax-rs-galaad-overview.md)
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > JSAX-RS Galaad Framework: Overview
 
 # JSAX-RS Galaad Framework: Overview
 

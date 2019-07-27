@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > [Get Started](./jsax-rs-get-started.md)
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > Get Started
 
 # JSAX-RS: Get Started
 

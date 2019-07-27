@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > [HateoasContext Interface](./jsax-rs-hateoascontext-interface.md)
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > HateoasContext Interface
 
 # JSAX-RS: `HateoasContext` Interface
 

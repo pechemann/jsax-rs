@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > [Application Transition](./jsax-rs-transition-interface.md)
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > Application Transition
 
 # JSAX-RS: `Transition` Interface
 
