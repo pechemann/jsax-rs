@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > Application Transition
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API> HATOEAS API > Application Transition
 
 # JSAX-RS: `Transition` Interface
 
