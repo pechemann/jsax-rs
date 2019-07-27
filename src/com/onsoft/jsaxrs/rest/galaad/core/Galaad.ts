@@ -98,7 +98,6 @@ export class Galaad {
         }
     }
 
-
     /**
      * Declare a state with the specified configuration.
      * 

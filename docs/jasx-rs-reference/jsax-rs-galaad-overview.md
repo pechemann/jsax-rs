@@ -16,7 +16,12 @@ Galaad uses few decorators to help developers to design HATEOAS implementation o
 - `@RsMapTransition`: allows to share a single `Transition` object definition between mutliple states
 - `@RsHateoasContext`: provides access to the `HateoasContext` context for the current app
 
-Galaad decorators implies development of REST APIS based on the Object-oriented Paradigm.
+Galaad decorators involves development of REST APIS based on the Object-oriented Paradigm, with 2 major advantages:
+
+- class encapsulation forces separation of concerns
+- aspect programming make code more readable and easy to maintain
+
+The following piece of code shows a basic HATEOAS implementation based on Galaad decorators:
 
 ```javascript
 
@@ -31,10 +36,9 @@ private _context: HateoasContext;
 private getBooks(): void {
     const path: string = '/books';
     this._router.get(path, (req: Request, res: Response) => {
-        const appState: any = this._context.getApplicationStateRepresentation(path);
         const result: any = {
             data: this._bookService.getAll(),
-            application: appState
+            application: this._context.getApplicationStateRepresentation(path);
         };
         res.send(result);
     });
@@ -42,3 +46,13 @@ private getBooks(): void {
 ```
 
 ## Galaad API
+
+Sometimes, the use of decorators is not enough flexible for a specific use case. In this case, developer can access all the features specified by JSAX-RS through the Galaad API.
+
+Code below shows how to initialize the hateoas context by using an external config file instead of the `@RsApplication` decorator:
+
+```javascript
+private initHateoas(config: ServerConfig): void {
+    Galaad.getInstance().createContext(config.hateoasConfig);
+}
+```
