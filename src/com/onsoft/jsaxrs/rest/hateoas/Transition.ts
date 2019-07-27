@@ -23,14 +23,14 @@ export interface Transition {
     method: HttpMethod;
 
     /**
-     * The context that describes the state associated with this transition.
-     */
-    context?: any;
-
-    /**
      * Specifies the link type associated with this transition.
      * 
      * @see https://www.w3.org/TR/html50/links.html#linkTypes
      */
-    rel?: LinkType;
+    rel?: LinkType | any;
+
+    /**
+     * The context that describes the state associated with this transition.
+     */
+    context?: any;
 }

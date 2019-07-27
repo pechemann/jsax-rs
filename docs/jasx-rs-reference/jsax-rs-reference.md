@@ -20,13 +20,13 @@ The JSAX-RS technology and the following reference are based upon the works by R
       1. [HateoasContext Interface](./jsax-rs-hateoascontext-interface.md)
       1. [Application Interface](./jsax-rs-application-interface.md)
       1. [State Interface](./jsax-rs-state-interface.md)
-      1. Transition Interface
+      1. [Transition Interface](./jsax-rs-transition-interface.md)
    - Galaad Framework
       1. Overview
       1. @RsApplication Decorator
       1. @RsState Decorator
-      1. @RsMapTransition Decorator
       1. @RsTransition Decorator
+      1. @RsMapTransition Decorator
 
 ## References
 
