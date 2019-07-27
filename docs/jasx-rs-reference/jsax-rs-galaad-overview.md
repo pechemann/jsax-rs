@@ -4,7 +4,7 @@
 
 Galaad framework is the reference implementation of the JSAX-RS HATEOAS API for JavaScript applications. It is entirely written in [TypeScript](https://www.typescriptlang.org/) and is both, platforms and frameworks, independent.
 
-Galaad has been designed for high productivity and the decorators based implementation make it very easy-to-use.
+Galaad has been designed for high productivity and the decorators based implementation makes it very easy-to-use.
 
 ## Decorators Implementation
 
@@ -16,10 +16,10 @@ Galaad uses few decorators to help developers to design HATEOAS implementation o
 - `@RsMapTransition`: allows to share a single `Transition` object definition between mutliple states
 - `@RsHateoasContext`: provides access to the `HateoasContext` context for the current app
 
-Galaad decorators involves development of REST APIS based on the Object-oriented Paradigm, with 2 major advantages:
+Galaad decorators involve development of REST APIS based upon the Object-oriented Paradigm, with 2 major advantages:
 
 - class encapsulation forces separation of concerns
-- aspect programming make code more readable and easy to maintain
+- aspect programming makes code more readable and easy to maintain
 
 The following piece of code shows a basic HATEOAS implementation based on Galaad decorators:
 
@@ -47,7 +47,7 @@ private getBooks(): void {
 
 ## Galaad API
 
-Sometimes, the use of decorators is not enough flexible for a specific use case. In this case, developer can access all the features specified by JSAX-RS through the Galaad API.
+Sometimes, the use of decorators is not enough flexible for specific use cases. In this case, developer can access all the features specified by JSAX-RS through the Galaad API.
 
 Code below shows how to initialize the hateoas context by using an external config file instead of the `@RsApplication` decorator:
 
