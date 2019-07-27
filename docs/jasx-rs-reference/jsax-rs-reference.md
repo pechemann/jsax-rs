@@ -27,6 +27,7 @@ The JSAX-RS technology and the following reference are based upon the works by R
       1. @RsState Decorator
       1. @RsTransition Decorator
       1. @RsMapTransition Decorator
+      1. @RsHateoasContext Decorator
 
 ## References
 

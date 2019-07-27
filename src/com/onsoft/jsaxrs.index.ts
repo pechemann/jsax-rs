@@ -30,6 +30,7 @@ export { TransitionMapping } from './jsaxrs/rest/galaad/util/TransitionMapping';
 
 //--> com/onsoft/jsaxrs/rest/gallad
 export { RsApplication } from './jsaxrs/rest/galaad/RsApplication';
+export { RsHateoasContext } from './jsaxrs/rest/galaad/RsHateoasContext';
 export { RsMapTransition } from './jsaxrs/rest/galaad/RsMapTransition';
 export { RsState } from './jsaxrs/rest/galaad/RsState';
 export { RsTransition } from './jsaxrs/rest/galaad/RsTransition';
