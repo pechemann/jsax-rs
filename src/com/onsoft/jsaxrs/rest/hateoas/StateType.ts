@@ -1,6 +1,6 @@
 /**
- * The <code>StateType</code> enum defines all type of states that can be used to let an application to be managed by
- * Hypermedia.
+ * The <code>StateType</code> enum defines all type of states (resource archetypes) that can be used to let an 
+ * application to be managed by Hypermedia.
  */
 export enum StateType {
     
@@ -26,6 +26,8 @@ export enum StateType {
     
     /**
      * Indicates that the state represents an idempotent resource that does not specify mutators.
+     * 
+     * @deprecated
      */
     INVARIANT = 'invariant'
 }

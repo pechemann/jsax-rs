@@ -23,9 +23,9 @@ export interface State {
     resource: string;
 
     /**
-     * The HTTP methods associated with this state.
+     * The request method associated with this state.
      */
-    method: HttpMethod;
+    method: HttpMethod | any;
 
     /**
      * The list of transitions associated with this state.

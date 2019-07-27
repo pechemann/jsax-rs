@@ -25,7 +25,7 @@ All application states are stored in the HATEOAS context and can be accessed by 
 
 While states define structure about endpoints of an application, state representations expose full information regarding the position at the current navigation. 
 
-State representations are literal JavaScript objects, built from data defined by the `Application` interface, for the current state. By using the `getApplicationStateRepresentation()`, developer provides segment parameters for the current resource path and get the related HATEOAS information.
+State representations are literal JavaScript objects, built from data defined by the [`Application` interface](./jsax-rs-application-interface.md), for the current state. By using the `getApplicationStateRepresentation()`, developer provides segment parameters for the current resource path and get the related HATEOAS information.
 
 ## Application States Graph
 

@@ -28,6 +28,6 @@ All of the application root path properties are optional.
 
 ## Application State
 
-The state property of the `Application` interface defined the structure of the application for the associated resource, including transitions to others app states.
+The state property of the `Application` interface defined the structure of the application for the associated resource, including transitions to others app states.  Application states are specified by the [`State` interface](./jsax-rs-state-interface.md).
 
 This property is required.
