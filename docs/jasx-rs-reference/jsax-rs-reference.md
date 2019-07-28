@@ -26,7 +26,7 @@ The JSAX-RS technology and the following reference are based upon the works by R
       1. [@RsApplication Decorator](./jsax-rs-galaad-rsapplication.md)
       1. [@RsHateoasContext Decorator](./jsax-rs-galaad-rshateoascontext.md)
       1. [@RsState Decorator](./jsax-rs-galaad-rsstate.md)
-      1. @RsTransition Decorator
+      1. [@RsTransition Decorator](./jsax-rs-galaad-rstransition.md)
       1. @RsTransitionFromState Decorator
       1. @RsMapTransition Decorator
 

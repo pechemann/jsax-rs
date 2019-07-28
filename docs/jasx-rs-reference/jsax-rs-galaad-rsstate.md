@@ -36,10 +36,12 @@ The `@RsState` decorator accepts objects of the type of `StateConfig` as paramet
 
 - `name`: the reference name for the state declaration
 - `type`: the kind of resource archetype for this state declaration
-- `resource`: resource associated with this state declaration
+- `resource`: the resource associated with this state declaration
 - `method`: the access methods associated with this state declaration
 
 The `name` and `method` properties are optional.
+
+When `name` is not set, the name reference of the associated `State` object is automatically initialized by using the name of the decorated method.
 
 ## Parameters Restrictions
 

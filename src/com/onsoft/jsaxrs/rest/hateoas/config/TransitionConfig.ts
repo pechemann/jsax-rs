@@ -34,7 +34,7 @@ export interface TransitionConfig {
     stateRef?: string;
     
     /**
-     * The link type assocaited with twith this transition declaration.
+     * The link type for this transition declaration.
      * 
      * @see https://www.w3.org/TR/html50/links.html#linkTypes
      */
