@@ -241,6 +241,7 @@ export class Galaad {
         const state: State = this._initStates.find((state: State)=> state.name === stateRef);
         if (state) {
             const transition: Transition = this._transitionBuilder.buildFromState(state);
+            transition.rel = mapping.rel;
             this._initTransitions.set(transitionRef, transition);
         } else {
             throw new HateoasContextError(

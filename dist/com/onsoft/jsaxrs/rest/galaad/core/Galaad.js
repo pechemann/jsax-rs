@@ -118,6 +118,7 @@ class Galaad {
         const state = this._initStates.find((state) => state.name === stateRef);
         if (state) {
             const transition = this._transitionBuilder.buildFromState(state);
+            transition.rel = mapping.rel;
             this._initTransitions.set(transitionRef, transition);
         }
         else {
