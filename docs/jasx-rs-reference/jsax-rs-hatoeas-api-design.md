@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API> HATOEAS API > JSAX-RS Design
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API > HATOEAS API > JSAX-RS Design
 
 **[WIP]**
 

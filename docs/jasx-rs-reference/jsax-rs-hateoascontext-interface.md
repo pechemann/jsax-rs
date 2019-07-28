@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API> HATOEAS API > HateoasContext Interface
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API > HATOEAS API > `HateoasContext` Interface
 
 # JSAX-RS: `HateoasContext` Interface
 

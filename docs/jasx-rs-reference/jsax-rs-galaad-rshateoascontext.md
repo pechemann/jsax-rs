@@ -1,10 +1,10 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > JSAX-RS Galaad Framework: `@RsHateoasContext` Decorator
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API > HATOEAS API > Galaad Framework: `@RsHateoasContext` Decorator
 
 # JSAX-RS Galaad Framework: `@RsHateoasContext` Decorator
 
 ## Overview
 
-The `@RsHateoasContext` decorator allows to access the HATEOAS context as defined by the [`HateoasContext` interface](./jsax-rs-hateoascontext-interface.md).
+The `@RsHateoasContext` decorator allows to access the HATEOAS context of an application, as defined by the [`HateoasContext` interface](./jsax-rs-hateoascontext-interface.md).
 
 ## Usage
 

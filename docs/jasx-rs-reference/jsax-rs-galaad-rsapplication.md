@@ -1,4 +1,4 @@
-:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > JSAX-RS Galaad Framework: `@RsApplication` Decorator
+:arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API > HATOEAS API > Galaad Framework: `@RsApplication` Decorator
 
 # JSAX-RS Galaad Framework: `@RsApplication` Decorator
 
