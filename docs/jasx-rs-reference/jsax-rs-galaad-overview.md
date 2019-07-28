@@ -4,7 +4,19 @@
 
 Galaad framework is the reference implementation of the JSAX-RS HATEOAS API for JavaScript applications. It is entirely written in [TypeScript](https://www.typescriptlang.org/) and is both, platforms and frameworks, independent.
 
-Galaad has been designed for high productivity and the decorators based implementation makes it very easy-to-use.
+## Principle
+
+Galaad is a lightweight container which allows to manage hypermedia for JavaScript applications built over the TypeScript programming language.
+
+The framework has been designed for high productivity and to ensure applications scalability. The decorators based implementation makes it very easy-to-use.
+
+Galaad and JSAX-RS have no dependencies; that means that you can use Galaad with various web frameworks, such as:
+
+- [Express](https://expressjs.com/)
+- [Hapi](https://hapijs.com/)
+- [Koa](https://koajs.com/)
+- [restify](http://restify.com/)
+- etc.
 
 ## Decorators Implementation
 
