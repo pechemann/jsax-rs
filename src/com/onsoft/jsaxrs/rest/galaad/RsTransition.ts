@@ -1,5 +1,7 @@
 import { Galaad } from './core/Galaad';
 import { TransitionConfig } from '../hateoas/config/TransitionConfig';
+import { HateoasContextError } from '../hateoas/exception/HateoasContextError';
+import { HateoasContextErrorCode } from '../hateoas/exception/HateoasContextErrorCode';
 
 /**
  * Provide method/property decoration to declare a new application transition.
@@ -16,17 +18,25 @@ export function RsTransition(config: TransitionConfig) {
                 if (typeof args[2] !== NUMBER_REF) {
                     return transitionMethodDecorator.apply(this, args);
                 } else {
-                    throw new Error();
+                    throw new HateoasContextError(
+                        HateoasContextErrorCode.INVALID_TRANSITION_CONFIG,
+                        `@RsTransition can only be applied to methods and properties`
+                    );
                 }
             default:
-                throw new Error();
+                throw new HateoasContextError(
+                    HateoasContextErrorCode.INVALID_TRANSITION_CONFIG,
+                    `@RsTransition can only be applied to methods and properties`
+                );
         }
     };
 
 };
 
+/* private */
 const NUMBER_REF: string = 'number';
 
+/* private */
 function transitionMethodDecorator(target: any, methodName: string, descriptor: any, config: TransitionConfig): any {
     if (!config.stateRef) {
         config.stateRef = methodName;
@@ -38,6 +48,7 @@ function transitionMethodDecorator(target: any, methodName: string, descriptor: 
     return descriptor;
 }
 
+/* private */
 function transitionPropertyDecorator(target: any, keyName: string, config: TransitionConfig): TransitionConfig {
     if (!config.name) {
         config.name = keyName;
