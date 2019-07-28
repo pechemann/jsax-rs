@@ -33,9 +33,16 @@ class HateoasContextImpl {
     getApplicationStateRepresentation(stateName, parameters) {
         const result = this.APP_UTIL.createAppRepresentationFromContext(this.CONTEXT);
         const stateRepresentation = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
+        const transitions = stateRepresentation.transitions;
         stateRepresentation.resource =
             this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
         result.state = stateRepresentation;
+        if (transitions) {
+            transitions.forEach((transition) => {
+                transition.resource =
+                    this.RESOURCE_PATH_UTIL.setSegmentParams(transition.resource, parameters);
+            });
+        }
         return result;
     }
     getGraph() {

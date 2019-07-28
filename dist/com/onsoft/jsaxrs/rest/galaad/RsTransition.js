@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Galaad_1 = require("./core/Galaad");
+const HateoasContextError_1 = require("../hateoas/exception/HateoasContextError");
+const HateoasContextErrorCode_1 = require("../hateoas/exception/HateoasContextErrorCode");
 function RsTransition(config) {
     return function (...args) {
         args.push(config);
@@ -12,10 +14,10 @@ function RsTransition(config) {
                     return transitionMethodDecorator.apply(this, args);
                 }
                 else {
-                    throw new Error();
+                    throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_CONFIG, `@RsTransition can only be applied to methods and properties`);
                 }
             default:
-                throw new Error();
+                throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_CONFIG, `@RsTransition can only be applied to methods and properties`);
         }
     };
 }

@@ -82,9 +82,16 @@ export class HateoasContextImpl implements HateoasContext {
     public getApplicationStateRepresentation(stateName: string, parameters?: { [name: string]: any }): any {
         const result: any = this.APP_UTIL.createAppRepresentationFromContext(this.CONTEXT);
         const stateRepresentation: any = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
+        const transitions = stateRepresentation.transitions;
         stateRepresentation.resource = 
             this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
         result.state = stateRepresentation;
+        if (transitions) {
+            transitions.forEach((transition:  any)=> {
+                transition.resource = 
+                    this.RESOURCE_PATH_UTIL.setSegmentParams(transition.resource, parameters);
+            });
+        }
         return result;
     }
 
