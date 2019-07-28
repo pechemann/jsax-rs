@@ -24,10 +24,11 @@ The JSAX-RS technology and the following reference are based upon the works by R
    - Galaad Framework
       1. [Overview](./jsax-rs-galaad-overview.md)
       1. @RsApplication Decorator
+      1. @RsHateoasContext Decorator
       1. @RsState Decorator
       1. @RsTransition Decorator
+      1. @RsTransitionFromState Decorator
       1. @RsMapTransition Decorator
-      1. @RsHateoasContext Decorator
 
 ## References
 

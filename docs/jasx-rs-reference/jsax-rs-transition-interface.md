@@ -19,7 +19,7 @@ The resource path represents the unresolved route the resource associated with t
 http://api.example.restapi.org/:country/:city/:museum/:artist/:opus
 ```
 
-JSAX-RS resource path uses the semicolon syntax to define tokens of route parameters. Thus, the preceding resource path sample, can be resolved as follow:
+JSAX-RS resource path uses the semicolon syntax to define variable path segments. Thus, the preceding resource path sample, can be resolved as follow:
 
 - `:country` => france
 - `:city` => paris

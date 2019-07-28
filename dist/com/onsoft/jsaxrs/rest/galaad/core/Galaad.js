@@ -12,11 +12,13 @@ class Galaad {
         this._transitionBuilder = null;
         this._context = null;
         this._initStates = null;
-        this._initTransitionMap = null;
+        this._initTransitionList = null;
+        this._createTransitionList = null;
         this._initTransitions = null;
         this._initStates = new Array();
         this._initTransitions = new Map();
-        this._initTransitionMap = new Array();
+        this._initTransitionList = new Array();
+        this._createTransitionList = new Array();
         this._stateBuilder = new StateBuilder_1.StateBuilder();
         this._transitionBuilder = new TransitionBuilder_1.TransitionBuilder();
     }
@@ -32,11 +34,14 @@ class Galaad {
             this.setStatesTransitions();
             this._context = new HateoasContextImpl_1.HateoasContextImpl(appContext, this._initStates);
             this._initStates = null;
-            this._initTransitionMap = null;
+            this._initTransitionList.length = 0;
+            this._initTransitionList = null;
             this._initTransitions.clear();
             this._initTransitions = null;
             this._stateBuilder = null;
             this._transitionBuilder = null;
+            this._createTransitionList.length = 0;
+            this._createTransitionList = null;
         }
     }
     registerStateConfig(config) {
@@ -67,18 +72,27 @@ class Galaad {
             throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.ILLEGAL_TRANSITION_OPERATION, 'You cannot map transitions after application context initialization.');
         }
         else {
-            this._initTransitionMap.push(mapper);
+            this._initTransitionList.push(mapper);
+        }
+    }
+    declareTransitionFromState(mapper) {
+        if (this._context) {
+            throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.ILLEGAL_TRANSITION_OPERATION, 'You cannot create transition from state after application context initialization.');
+        }
+        else {
+            this._createTransitionList.push(mapper);
         }
     }
     getContext() {
         return this._context;
     }
     setStatesTransitions() {
+        this.createTransitionsFromStates();
         this._initStates.forEach((state) => this.assignTransitionsToState(state));
     }
     assignTransitionsToState(state) {
         const stateRef = state.name;
-        const mappingList = this._initTransitionMap.filter((mapping) => {
+        const mappingList = this._initTransitionList.filter((mapping) => {
             return mapping.stateRef === stateRef;
         });
         if (mappingList.length > 0) {
@@ -93,6 +107,21 @@ class Galaad {
                 }
             });
             state.transitions = transitions;
+        }
+    }
+    createTransitionsFromStates() {
+        this._createTransitionList.forEach((mapping) => this.createTransitionFromState(mapping));
+    }
+    createTransitionFromState(mapping) {
+        const stateRef = mapping.stateRef;
+        const transitionRef = mapping.transitionRef;
+        const state = this._initStates.find((state) => state.name === stateRef);
+        if (state) {
+            const transition = this._transitionBuilder.buildFromState(state);
+            this._initTransitions.set(transitionRef, transition);
+        }
+        else {
+            throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_MAPPING, `State does no exists to create the specified transition: state=${stateRef}, transition=${transitionRef}`);
         }
     }
 }

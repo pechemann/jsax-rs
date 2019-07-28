@@ -34,6 +34,7 @@ export { RsHateoasContext } from './jsaxrs/rest/galaad/RsHateoasContext';
 export { RsMapTransition } from './jsaxrs/rest/galaad/RsMapTransition';
 export { RsState } from './jsaxrs/rest/galaad/RsState';
 export { RsTransition } from './jsaxrs/rest/galaad/RsTransition';
+export { RsTransitionFromState } from './jsaxrs/rest/galaad/RsTransitionFromState';
 
 //--> com/onsoft/jsaxrs/rest/hateoas/config
 export { ApplicationConfig } from './jsaxrs/rest/hateoas/config/ApplicationConfig';

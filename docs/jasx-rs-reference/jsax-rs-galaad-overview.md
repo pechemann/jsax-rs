@@ -11,10 +11,11 @@ Galaad has been designed for high productivity and the decorators based implemen
 Galaad uses few decorators to help developers to design HATEOAS implementation of REST APIs:
 
 - `@RsApplication`: provides configuration for `Application` objects
+- `@RsHateoasContext`: provides access to the `HateoasContext` context for the current app
 - `@RsState`: provides configuration for `State` objects
 - `@RsTransition`: provides configuration for `Transition` objects
+- `@RsTransitionFromState`: allows to declare a `Transition` object based on an existing `State` object
 - `@RsMapTransition`: allows to share a single `Transition` object definition between mutliple states
-- `@RsHateoasContext`: provides access to the `HateoasContext` context for the current app
 
 Galaad decorators involve development of REST APIS based upon the Object-oriented Paradigm, with 2 major advantages:
 

@@ -23,5 +23,12 @@ class TransitionBuilder {
         }
         return transition;
     }
+    buildFromState(state) {
+        const transition = new TransitionImpl_1.TransitionImpl();
+        transition.type = state.type;
+        transition.resource = state.resource;
+        transition.method = state.method;
+        return transition;
+    }
 }
 exports.TransitionBuilder = TransitionBuilder;

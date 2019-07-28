@@ -41,7 +41,13 @@ export class Galaad {
     /**
      * The list of states registered into this <code>Galaad</code> instance before context initialization.
      */
-    private _initTransitionMap: Array<TransitionMapping> = null;
+    private _initTransitionList: Array<TransitionMapping> = null;
+
+    /**
+     * The list of transitions to be created from states registered into this <code>Galaad</code> instance before
+     * context initialization.
+     */
+    private _createTransitionList: Array<TransitionMapping> = null;
 
     /**
      * The map of states registered into this  <code>Galaad</code> instance before context initialization.
@@ -59,7 +65,8 @@ export class Galaad {
     private constructor() {
         this._initStates = new Array<State>();
         this._initTransitions = new Map<string, Transition>();
-        this._initTransitionMap = new Array<TransitionMapping>();
+        this._initTransitionList = new Array<TransitionMapping>();
+        this._createTransitionList = new Array<TransitionMapping>();
         this._stateBuilder = new StateBuilder();
         this._transitionBuilder = new TransitionBuilder();
     }
@@ -90,11 +97,14 @@ export class Galaad {
             this.setStatesTransitions();
             this._context = new HateoasContextImpl(appContext, this._initStates);
             this._initStates = null;
-            this._initTransitionMap = null;
+            this._initTransitionList.length = 0;
+            this._initTransitionList = null;
             this._initTransitions.clear();
             this._initTransitions = null;
             this._stateBuilder = null;
             this._transitionBuilder = null;
+            this._createTransitionList.length = 0;
+            this._createTransitionList = null;
         }
     }
 
@@ -149,7 +159,23 @@ export class Galaad {
                 'You cannot map transitions after application context initialization.'
             );
         } else {
-            this._initTransitionMap.push(mapper);
+            this._initTransitionList.push(mapper);
+        }
+    }
+    
+    /**
+     * Declare the predicate for creating a new transition based upon an existing state.
+     * 
+     * @param {TransitionMapping} mapper the logical link between the new transition and the associated state.
+     */
+    public declareTransitionFromState(mapper: TransitionMapping): void {
+        if (this._context) {
+            throw new HateoasContextError(
+                HateoasContextErrorCode.ILLEGAL_TRANSITION_OPERATION,
+                'You cannot create transition from state after application context initialization.'
+            );
+        } else {
+            this._createTransitionList.push(mapper);
         }
     }
     
@@ -166,6 +192,7 @@ export class Galaad {
      * Associate states and transitions.
      */
     private setStatesTransitions(): void {
+        this.createTransitionsFromStates();
         this._initStates.forEach((state: State)=> this.assignTransitionsToState(state));
     }
 
@@ -176,7 +203,7 @@ export class Galaad {
      */
     private assignTransitionsToState(state: State): void {
         const stateRef: string = state.name;
-        const mappingList: Array<TransitionMapping> = this._initTransitionMap.filter((mapping: TransitionMapping)=> {
+        const mappingList: Array<TransitionMapping> = this._initTransitionList.filter((mapping: TransitionMapping)=> {
             return mapping.stateRef === stateRef;
         });
         if (mappingList.length > 0) {
@@ -193,6 +220,33 @@ export class Galaad {
                 }
             });
             state.transitions = transitions;
+        }
+    }
+
+    /**
+     * Create all transitions based from existing states.
+     */
+    private createTransitionsFromStates(): void {
+        this._createTransitionList.forEach((mapping: TransitionMapping)=> this.createTransitionFromState(mapping));
+    }
+    
+    /**
+     * Create a new transition, based from existing states, depending on the specified mapping.
+     * 
+     * @param {TransitionMapping} mapping the state / transition mapping sued to create the new transition.
+     */
+    private createTransitionFromState(mapping: TransitionMapping): void {
+        const stateRef: string = mapping.stateRef;
+        const transitionRef: string = mapping.transitionRef;
+        const state: State = this._initStates.find((state: State)=> state.name === stateRef);
+        if (state) {
+            const transition: Transition = this._transitionBuilder.buildFromState(state);
+            this._initTransitions.set(transitionRef, transition);
+        } else {
+            throw new HateoasContextError(
+                HateoasContextErrorCode.INVALID_TRANSITION_MAPPING,
+             `State does no exists to create the specified transition: state=${stateRef}, transition=${transitionRef}`
+            );
         }
     }
 }
