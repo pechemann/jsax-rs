@@ -36,6 +36,6 @@ The `@RsApplication` decorator accepts objects of the type of `ApplicationConfig
 - `apiPath`: the path to the application API
 - `version`: the version of the application API
 
-The `domain`, `apiPath` and `version` properties are optional.
+The `domain`, `apiPath` and `version` parameters are optional.
 
 Only one `@RsApplication` decorator declaration is allowed by application.

@@ -21,7 +21,7 @@ The `@RsTransition` decorator accepts objects of the type of `TransitionConfig` 
 - `stateRef`: the reference name to the state associated with this transition declaration
 - `rel`: link type for this transition declaration
 
-The `name`, `stateRef`, `rel` and `method` properties are optional.
+The `name`, `stateRef`, `rel` and `method` parameters are optional.
 
 When `stateRef` is not set, the name reference of the associated `State` object is automatically initialized by using the name of the decorated method.
 

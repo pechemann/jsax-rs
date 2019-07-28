@@ -8,7 +8,7 @@ The `@RsTransitionFromState` decorator allows to define transitions based upon a
 
 ## Usage
 
-`@RsTransitionFromState` is a property decorator, where the property name is the reference to the transition. It accepts a string parameter which is the refernce to the state used to create this shareable transtion.
+`@RsTransitionFromState` is a property decorator, where the property name is the reference to the transition. It accepts a string parameter which is the reference to the state used to create this shareable transtion.
 
 The following code shows how to declare a new transition built from the `getBooks` state:
 
