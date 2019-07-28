@@ -54,7 +54,7 @@ private createBook(): void {}
 
 ### Method Decorator
 
-Method decorators allow to declare transitions that are associated with only one states: 
+Method decorators allow to declare transitions that are associated with only one state: 
 
 ```javascript
 @RsState({
