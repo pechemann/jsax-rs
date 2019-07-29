@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         removeComments: true,
         preserveConstEnums: true,
         // emitDecoratorMetadata: true,
-        // experimentalDecorators: true,
+        experimentalDecorators: true,
         alwaysStrict: true
       }
     }
