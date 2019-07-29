@@ -51,7 +51,7 @@ private getBooks(): void {
     this._router.get(path, (req: Request, res: Response) => {
         const result: any = {
             data: this._bookService.getAll(),
-            application: this._context.getApplicationStateRepresentation(path);
+            application: this._context.getResourceStateRepresentation(path);
         };
         res.send(result);
     });

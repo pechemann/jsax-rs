@@ -30,7 +30,7 @@ class HateoasContextImpl {
         result.state = this.STATES.get(stateName);
         return result;
     }
-    getApplicationStateRepresentation(stateName, parameters) {
+    getResourceStateRepresentation(stateName, parameters) {
         const result = this.APP_UTIL.createAppRepresentationFromContext(this.CONTEXT);
         const stateRepresentation = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
         const transitions = stateRepresentation.transitions;

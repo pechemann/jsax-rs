@@ -14,7 +14,7 @@ The `State` interface provides state information for an application managed by H
 
 The name property is a functional string used to identify an application. Name identifiers must be uniques in the application.
 
-You typically use name identifiers as parameters of both methods of the HateoasContext interface, `getApplicationState()` and `getApplicationStateRepresentation()`, to get a specific state in the application.
+You typically use name identifiers as parameters of both methods of the HateoasContext interface, `getApplicationState()` and `getResourceStateRepresentation()`, to get a specific state in the application.
 
 ## Resource Path
 
@@ -32,7 +32,7 @@ JSAX-RS resource path uses the semicolon syntax to define variable path segments
 - `:artist` => leonardo-da-vinci
 - `:opus` => mona-lisa
 
-So, when using these values as parameters of the `getApplicationStateRepresentation()` method, it will return the following resolved URI:
+So, when using these values as parameters of the `getResourceStateRepresentation()` method, it will return the following resolved URI:
 
 ```
 http://api.example.restapi.org/france/paris/louvre/leonardo-da-vinci/mona-lisa

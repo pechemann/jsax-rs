@@ -27,7 +27,7 @@ JSAX-RS resource path uses the semicolon syntax to define variable path segments
 - `:artist` => leonardo-da-vinci
 - `:opus` => mona-lisa
 
-So, when using these values as parameters of the `getApplicationStateRepresentation()` method, it will return the following resolved URI:
+So, when using these values as parameters of the `getResourceStateRepresentation()` method, it will return the following resolved URI:
 
 ```
 http://api.example.restapi.org/france/paris/louvre/leonardo-da-vinci/mona-lisa

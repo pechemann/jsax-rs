@@ -23,7 +23,7 @@ private getBooks(): void {
     this._router.get('/books', (req: Request, res: Response) => {
         const result: any = {
             data: this._bookService.getAll(),
-            application: this._context.getApplicationStateRepresentation('getBooks')
+            application: this._context.getResourceStateRepresentation('getBooks')
         };
         res.send(result);
     });
