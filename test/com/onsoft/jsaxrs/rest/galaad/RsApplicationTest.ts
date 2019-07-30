@@ -1,13 +1,14 @@
 import 'mocha';
-import { expect } from 'chai';
+import { expect, assert } from 'chai';
 
 // Class to test:
 import { RsApplication } from '../../../../../../src/com/onsoft/jsaxrs/rest/galaad/RsApplication';
 import { ApplicationConfig } from '../../../../../../src/com/onsoft/jsaxrs/rest/hateoas/config/ApplicationConfig';
+import { Galaad } from '../../../../../../src/com/onsoft/jsaxrs/rest/galaad/core/Galaad';
+import { HateoasContextError } from '../../../../../../src/com/onsoft/jsaxrs/rest/hateoas/exception/HateoasContextError';
 
 // Utilities:
 import * as utils from '../../../../../../utils/test-utils/utilities/RsApplicationTestUtils';
-import { Galaad } from '../../../../../../src/com/onsoft/jsaxrs.index';
 
 // Test:
 describe('@RsApplication decorator test', ()=> {
@@ -24,6 +25,15 @@ describe('@RsApplication decorator test', ()=> {
       const constructorFunc: Function = ()=> {};
       Object.seal(constructorFunc);
       expect(innerFunc(constructorFunc)).to.equal(constructorFunc);
+    });
+
+    it('@RsApplication should throw an error when called twice', ()=> {
+      const config: ApplicationConfig = utils.createConfig();
+      const iThrowError: Function = ()=> {
+        RsApplication(config);
+      };
+      RsApplication(config);
+      assert.throws(iThrowError, HateoasContextError, 'A context already exists for this application.');
     });
   });
 
