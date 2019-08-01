@@ -1,49 +1,47 @@
 import 'mocha';
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
 
 // Class to test:
 import { RsHateoasContext } from '../../../../../../src/com/onsoft/jsaxrs/rest/galaad/RsHateoasContext';
 import { ApplicationConfig } from '../../../../../../src/com/onsoft/jsaxrs/rest/hateoas/config/ApplicationConfig';
 import { Galaad } from '../../../../../../src/com/onsoft/jsaxrs/rest/galaad/core/Galaad';
-import { HateoasContextError } from '../../../../../../src/com/onsoft/jsaxrs/rest/hateoas/exception/HateoasContextError';
 
 // Utilities:
 import * as utils from '../../../../../../utils/test-utils/utilities/RsApplicationTestUtils';
+import * as galaadUtils from '../../../../../../utils/test-utils/utilities/GalaadTestUtils';
 
 // Test:
-describe('@RsHateoasContext decorator test', ()=> {
-  
-  afterEach(()=> {
-    (Galaad as any)._instance = null;
-  });
+describe('@RsHateoasContext decorator test', () => {
 
-  describe('#Decorated property', ()=> {
+    afterEach(galaadUtils.destroy);
 
-    it('should set the decorated property with the HateoasContext reference', ()=> {
-        const config: ApplicationConfig = utils.createConfig();
-        Galaad.getInstance().createContext(config);
-        const innerFunc: Function = RsHateoasContext();
-        const decoratee: any = { context: null };
-        innerFunc(decoratee, 'context');
-        expect(Galaad.getInstance().getContext()).to.equal(decoratee.context);
+    describe('#Decorated property', () => {
+
+        it('should set the decorated property with the HateoasContext reference', () => {
+            const config: ApplicationConfig = utils.createConfig();
+            Galaad.getInstance().createContext(config);
+            const innerFunc: Function = RsHateoasContext();
+            const decoratee: any = { context: null };
+            innerFunc(decoratee, 'context');
+            expect(Galaad.getInstance().getContext()).to.equal(decoratee.context);
+        });
+
+        it('should make the decorated property immmutable', () => {
+            const config: ApplicationConfig = utils.createConfig();
+            Galaad.getInstance().createContext(config);
+            const innerFunc: Function = RsHateoasContext();
+            const decoratee: any = { context: null };
+            innerFunc(decoratee, 'context');
+            decoratee.context = null;
+            expect(Galaad.getInstance().getContext()).to.equal(decoratee.context);
+        });
+
+        it('should set decorated property to null if Galaad context has not been initiaized', () => {
+            const innerFunc: Function = RsHateoasContext();
+            const decoratee: any = { context: null };
+            innerFunc(decoratee, 'context');
+            decoratee.context = null;
+            expect(decoratee.context).to.equal(null);
+        });
     });
-
-    it('should make the decorated property immmutable', ()=> {
-        const config: ApplicationConfig = utils.createConfig();
-        Galaad.getInstance().createContext(config);
-        const innerFunc: Function = RsHateoasContext();
-        const decoratee: any = { context: null };
-        innerFunc(decoratee, 'context');
-        decoratee.context = null;
-        expect(Galaad.getInstance().getContext()).to.equal(decoratee.context);
-    });
-
-    it('should set decorated property to null if Galaad context has not been initiaized', ()=> {
-        const innerFunc: Function = RsHateoasContext();
-        const decoratee: any = { context: null };
-        innerFunc(decoratee, 'context');
-        decoratee.context = null;
-        expect(decoratee.context).to.equal(null);
-    });
-  });
 });

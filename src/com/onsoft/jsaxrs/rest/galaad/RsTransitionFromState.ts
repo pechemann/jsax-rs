@@ -7,7 +7,7 @@ import { TransitionMapping } from './util/TransitionMapping';
  * @param {string} stateRef the reference to the state used to create the new transition.
  */
 export function RsTransitionFromState(stateRef: string) {
-    return function (target: any, key: string): any {
+    return function (target: any, key: string): void {
         const mapping: TransitionMapping = {
             stateRef: stateRef,
             transitionRef: key

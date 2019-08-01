@@ -8,14 +8,13 @@ import { Galaad } from '../../../../../../src/com/onsoft/jsaxrs/rest/galaad/core
 import { HateoasContextError } from '../../../../../../src/com/onsoft/jsaxrs/rest/hateoas/exception/HateoasContextError';
 
 // Utilities:
+import * as galaadUtils from '../../../../../../utils/test-utils/utilities/GalaadTestUtils';
 import * as utils from '../../../../../../utils/test-utils/utilities/RsApplicationTestUtils';
 
 // Test:
 describe('@RsApplication decorator test', () => {
 
-    afterEach(() => {
-        (Galaad as any)._instance = null;
-    });
+    afterEach(galaadUtils.destroy);
 
     describe('#Decorator factory', () => {
 

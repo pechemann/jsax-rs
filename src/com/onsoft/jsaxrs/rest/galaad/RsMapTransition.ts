@@ -8,7 +8,7 @@ import { LinkType } from '../hateoas/LinkType';
  * @param {LinkType | any} rel the relation defined by the transition.
  */
 export function RsMapTransition(transitionRef: string, rel?: LinkType | any) {
-    return function(target: any, methodName: string, descriptor: any): any {
+    return function(target: any, methodName: string, descriptor: PropertyDescriptor): PropertyDescriptor {
         Galaad.getInstance().addTransitionMappper({
             stateRef: methodName,
             transitionRef: transitionRef,

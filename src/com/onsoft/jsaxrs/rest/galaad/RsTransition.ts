@@ -37,7 +37,8 @@ export function RsTransition(config: TransitionConfig) {
 const NUMBER_REF: string = 'number';
 
 /* private */
-function transitionMethodDecorator(target: any, methodName: string, descriptor: any, config: TransitionConfig): any {
+function transitionMethodDecorator(target: any, methodName: string, descriptor: PropertyDescriptor,
+                                   config: TransitionConfig): PropertyDescriptor {
     if (!config.stateRef) {
         config.stateRef = methodName;
     }

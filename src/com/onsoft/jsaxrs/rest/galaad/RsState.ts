@@ -7,7 +7,7 @@ import { StateConfig } from '../hateoas/config/StateConfig';
  * @param {StateConfig} config the config of the state declared by this decorator.
  */
 export function RsState(config: StateConfig) {
-    return function(target: any, methodName: string, descriptor: any): any {
+    return function(target: any, methodName: string, descriptor: PropertyDescriptor): PropertyDescriptor {
         if (!config.name) {
             config.name = methodName;
         }
