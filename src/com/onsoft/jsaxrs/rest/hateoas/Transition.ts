@@ -20,7 +20,7 @@ export interface Transition {
     /**
      * The HTTP methods associated with this transition.
      */
-    method: HttpMethod;
+    method: HttpMethod | any;
 
     /**
      * Specifies the link type associated with this transition.

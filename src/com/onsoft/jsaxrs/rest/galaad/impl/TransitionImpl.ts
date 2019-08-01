@@ -21,7 +21,7 @@ export class TransitionImpl implements Transition {
     /**
      * @inheritdoc
      */
-    public method: HttpMethod = null;
+    public method: HttpMethod | any = null;
 
     /**
      * @inheritdoc
