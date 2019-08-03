@@ -215,7 +215,7 @@ export class Galaad {
                 } else {
                     throw new HateoasContextError(
                         HateoasContextErrorCode.INVALID_TRANSITION_MAPPING,
-                     `Transition does no exists for the specified state: state=${stateRef}, transition=${transitionRef}`
+                    `Transition does no exists for the specified state: state=${stateRef}, transition=${transitionRef}.`
                     );
                 }
             });
@@ -246,7 +246,7 @@ export class Galaad {
         } else {
             throw new HateoasContextError(
                 HateoasContextErrorCode.INVALID_TRANSITION_MAPPING,
-             `State does no exists to create the specified transition: state=${stateRef}, transition=${transitionRef}`
+              `State does no exists to create the specified transition: state=${stateRef}, transition=${transitionRef}.`
             );
         }
     }

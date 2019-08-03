@@ -103,7 +103,7 @@ class Galaad {
                     transitions.push(this._initTransitions.get(mapping.transitionRef));
                 }
                 else {
-                    throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_MAPPING, `Transition does no exists for the specified state: state=${stateRef}, transition=${transitionRef}`);
+                    throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_MAPPING, `Transition does no exists for the specified state: state=${stateRef}, transition=${transitionRef}.`);
                 }
             });
             state.transitions = transitions;
@@ -122,7 +122,7 @@ class Galaad {
             this._initTransitions.set(transitionRef, transition);
         }
         else {
-            throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_MAPPING, `State does no exists to create the specified transition: state=${stateRef}, transition=${transitionRef}`);
+            throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_MAPPING, `State does no exists to create the specified transition: state=${stateRef}, transition=${transitionRef}.`);
         }
     }
 }

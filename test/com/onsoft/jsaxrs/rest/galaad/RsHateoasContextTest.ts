@@ -36,7 +36,7 @@ describe('@RsHateoasContext decorator test', () => {
             expect(Galaad.getInstance().getContext()).to.equal(decoratee.context);
         });
 
-        it('should set decorated property to null if Galaad context has not been initiaized', () => {
+        it('should set decorated property to null if Galaad context has not been initialized', () => {
             const innerFunc: Function = RsHateoasContext();
             const decoratee: any = { context: null };
             innerFunc(decoratee, 'context');

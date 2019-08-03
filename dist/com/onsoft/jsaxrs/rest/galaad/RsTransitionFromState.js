@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Galaad_1 = require("./core/Galaad");
-function RsTransitionFromState(stateRef) {
+function RsTransitionFromState(stateRef, rel) {
     return function (target, key) {
         const mapping = {
             stateRef: stateRef,
-            transitionRef: key
+            transitionRef: key,
+            rel: rel
         };
         const getter = () => {
             return mapping;

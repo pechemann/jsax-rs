@@ -26,3 +26,8 @@ export function getInitStates(): Array<State> {
 export function getInitransitionMap(): Map<string, Transition> {
     return (Galaad.getInstance() as any)._initTransitions;
 };
+
+// return the creational transition list for the current Galaad instance
+export function getCreateTransitionList(): Array<TransitionMapping> {
+    return (Galaad.getInstance() as any)._createTransitionList;
+};
