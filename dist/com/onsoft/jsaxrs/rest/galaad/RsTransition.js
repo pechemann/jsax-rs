@@ -14,10 +14,10 @@ function RsTransition(config) {
                     return transitionMethodDecorator.apply(this, args);
                 }
                 else {
-                    throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_CONFIG, `@RsTransition can only be applied to methods and properties`);
+                    throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_CONFIG, '@RsTransition can only be applied to methods and properties.');
                 }
             default:
-                throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_CONFIG, `@RsTransition can only be applied to methods and properties`);
+                throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_TRANSITION_CONFIG, '@RsTransition can only be applied to methods and properties.');
         }
     };
 }

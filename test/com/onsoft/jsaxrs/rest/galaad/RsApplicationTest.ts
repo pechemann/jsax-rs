@@ -28,11 +28,11 @@ describe('@RsApplication decorator test', () => {
 
         it('@RsApplication should throw an error when called twice', () => {
             const config: ApplicationConfig = utils.createConfig();
-            const iThrowError: Function = () => {
+            const shouldThrowError: Function = () => {
                 RsApplication(config);
             };
             RsApplication(config);
-            assert.throws(iThrowError, HateoasContextError, 'A context already exists for this application.');
+            assert.throws(shouldThrowError, HateoasContextError, 'A context already exists for this application.');
         });
     });
 

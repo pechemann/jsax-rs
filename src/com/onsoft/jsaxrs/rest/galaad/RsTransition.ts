@@ -20,13 +20,13 @@ export function RsTransition(config: TransitionConfig) {
                 } else {
                     throw new HateoasContextError(
                         HateoasContextErrorCode.INVALID_TRANSITION_CONFIG,
-                        `@RsTransition can only be applied to methods and properties`
+                        '@RsTransition can only be applied to methods and properties.'
                     );
                 }
             default:
                 throw new HateoasContextError(
                     HateoasContextErrorCode.INVALID_TRANSITION_CONFIG,
-                    `@RsTransition can only be applied to methods and properties`
+                    '@RsTransition can only be applied to methods and properties.'
                 );
         }
     };

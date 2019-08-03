@@ -9,7 +9,6 @@ import { TransitionMapping } from '../../../../../../src/com/onsoft/jsaxrs/rest/
 import * as galaadUtils from '../../../../../../utils/test-utils/utilities/GalaadTestUtils';
 import * as utils from '../../../../../../utils/test-utils/utilities/RsMapTransitionTestUtils';
 
-
 // Test:
 describe('@RsMapTransition decorator test', () => {
 
@@ -40,7 +39,7 @@ describe('@RsMapTransition decorator test', () => {
         
         it('@RsMapTransition should create a transition mapper with transitionRef equals to the reference passed as parameter', () => {
             const innerFunc: Function = RsMapTransition(utils.TRANSITION_REF);
-            const initTransitionList: Array<TransitionMapping> = galaadUtils.getInitTransitionList();;
+            const initTransitionList: Array<TransitionMapping> = galaadUtils.getInitTransitionList();
             innerFunc({}, utils.METHOD_REF, {});
             const mapper: TransitionMapping = initTransitionList.find((item: TransitionMapping)=> {
                 return item.transitionRef === utils.TRANSITION_REF;
