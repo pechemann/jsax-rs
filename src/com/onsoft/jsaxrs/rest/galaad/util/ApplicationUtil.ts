@@ -18,7 +18,7 @@ export class ApplicationUtil {
         let result: any = {};
         result.name = application.name;
         result.state = application.state;
-        if (result.domain) {
+        if (application.domain) {
             result.domain = application.domain;
         }
         if (application.apiPath) {
