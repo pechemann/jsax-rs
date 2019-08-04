@@ -9,7 +9,6 @@ import { HateoasContextError } from '../../../../../../src/com/onsoft/jsaxrs/res
 
 // Utilities:
 import * as galaadUtils from '../../../../../../utils/test-utils/utilities/GalaadTestUtils';
-import * as utils from '../../../../../../utils/test-utils/utilities/RsApplicationTestUtils';
 
 // Test:
 describe('@RsApplication decorator test', () => {
@@ -19,7 +18,7 @@ describe('@RsApplication decorator test', () => {
     describe('#Decorator factory', () => {
 
         it('@RsApplication should return a factory that does not modify constructor function', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             const innerFunc: Function = RsApplication(config);
             const constructorFunc: Function = () => { };
             Object.seal(constructorFunc);
@@ -27,7 +26,7 @@ describe('@RsApplication decorator test', () => {
         });
 
         it('@RsApplication should throw an error when called twice', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             const shouldThrowError: Function = () => {
                 RsApplication(config);
             };
@@ -39,25 +38,25 @@ describe('@RsApplication decorator test', () => {
     describe('#Gallad initialization', () => {
 
         it('@RsApplication should create an application context with name equals to config name', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             RsApplication(config);
             expect(Galaad.getInstance().getContext().getApplicationContext().getName()).to.equal(config.name);
         });
 
         it('@RsApplication should create an application context with domain equals to config domain', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             RsApplication(config);
             expect(Galaad.getInstance().getContext().getApplicationContext().getDomain()).to.equal(config.domain);
         });
 
         it('@RsApplication should create an application context with API path equals to config API path', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             RsApplication(config);
             expect(Galaad.getInstance().getContext().getApplicationContext().getApiPath()).to.equal(config.apiPath);
         });
 
         it('@RsApplication should create an application context with API version equals to config version', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             RsApplication(config);
             expect(Galaad.getInstance().getContext().getApplicationContext().getApiVersion()).to.equal(config.version);
         });

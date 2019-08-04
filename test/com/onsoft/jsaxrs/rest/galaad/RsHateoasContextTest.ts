@@ -7,7 +7,6 @@ import { ApplicationConfig } from '../../../../../../src/com/onsoft/jsaxrs/rest/
 import { Galaad } from '../../../../../../src/com/onsoft/jsaxrs/rest/galaad/core/Galaad';
 
 // Utilities:
-import * as utils from '../../../../../../utils/test-utils/utilities/RsApplicationTestUtils';
 import * as galaadUtils from '../../../../../../utils/test-utils/utilities/GalaadTestUtils';
 
 // Test:
@@ -18,7 +17,7 @@ describe('@RsHateoasContext decorator test', () => {
     describe('#Decorated property', () => {
 
         it('should set the decorated property with the HateoasContext reference', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             Galaad.getInstance().createContext(config);
             const innerFunc: Function = RsHateoasContext();
             const decoratee: any = { context: null };
@@ -27,7 +26,7 @@ describe('@RsHateoasContext decorator test', () => {
         });
 
         it('should make the decorated property immmutable', () => {
-            const config: ApplicationConfig = utils.createConfig();
+            const config: ApplicationConfig = galaadUtils.createConfig();
             Galaad.getInstance().createContext(config);
             const innerFunc: Function = RsHateoasContext();
             const decoratee: any = { context: null };
