@@ -5,7 +5,7 @@ class ApplicationUtil {
         let result = {};
         result.name = application.name;
         result.state = application.state;
-        if (result.domain) {
+        if (application.domain) {
             result.domain = application.domain;
         }
         if (application.apiPath) {

@@ -1,5 +1,3 @@
-import { State } from '../../hateoas/State';
-
 /**
  * A utility class that provides functionality for working with the resource path of a state.
  */
