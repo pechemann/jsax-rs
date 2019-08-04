@@ -1,5 +1,5 @@
 /*!
- * This module constains utilities used by the ApplicationBuilder test  suite.
+ * This module constains utilities used by the ApplicationBuilder test suite.
  */
 
 import { State } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/State';

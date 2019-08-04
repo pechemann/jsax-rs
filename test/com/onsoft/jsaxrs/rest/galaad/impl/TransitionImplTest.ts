@@ -8,24 +8,24 @@ import { Transition } from '../../../../../../../src/com/onsoft/jsaxrs/rest/hate
 // Utilities:
 
 // Test:
-describe('@TransitionImpl class', () => {
+describe('TransitionImpl class', () => {
 
-    it('@TransitionImpl should have a type property initialized to null', () => {
+    it('TransitionImpl should have a type property initialized to null', () => {
         const transition: Transition = new TransitionImpl();
         expect(transition.type).to.be.null;
     });
 
-    it('@TransitionImpl should have a resource property initialized to null', () => {
+    it('TransitionImpl should have a resource property initialized to null', () => {
         const transition: Transition = new TransitionImpl();
         expect(transition.resource).to.be.null;
     });
     
-    it('@TransitionImpl should have a method property initialized to null', () => {
+    it('TransitionImpl should have a method property initialized to null', () => {
         const transition: Transition = new TransitionImpl();
         expect(transition.method).to.be.null;
     });
     
-    it('@TransitionImpl should have a rel property initialized to null', () => {
+    it('TransitionImpl should have a rel property initialized to null', () => {
         const transition: Transition = new TransitionImpl();
         expect(transition.rel).to.be.null;
     });
