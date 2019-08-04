@@ -18,28 +18,28 @@ describe('@StateBuilder class test', () => {
 
     describe('#buildFromConfig()', () => {
 
-        it('buildFromConfig() should create a State object the same name as the config name', () => {
+        it('buildFromConfig() should create a State object with the same name as the config name', () => {
             const builder: StateBuilder = new StateBuilder();
             const config: StateConfig = utils.buildStateConfig(utils.NAME, utils.TYPE, utils.RESOURCE, utils.METHOD);
             const result: State = builder.buildFromConfig(config);
             expect(result.name).to.equal(config.name);
         });
 
-        it('buildFromConfig() should create a State object the same type as the config type', () => {
+        it('buildFromConfig() should create a State object with the same type as the config type', () => {
             const builder: StateBuilder = new StateBuilder();
             const config: StateConfig = utils.buildStateConfig(utils.NAME, utils.TYPE, utils.RESOURCE, utils.METHOD);
             const result: State = builder.buildFromConfig(config);
             expect(result.type).to.equal(config.type);
         });
         
-        it('buildFromConfig() should create a State object the same resource as the config resource', () => {
+        it('buildFromConfig() should create a State object with the same resource as the config resource', () => {
             const builder: StateBuilder = new StateBuilder();
             const config: StateConfig = utils.buildStateConfig(utils.NAME, utils.TYPE, utils.RESOURCE, utils.METHOD);
             const result: State = builder.buildFromConfig(config);
             expect(result.resource).to.equal(config.resource);
         });
         
-        it('buildFromConfig() should create a State object the same method as the config method', () => {
+        it('buildFromConfig() should create a State object with the same method as the config method', () => {
             const builder: StateBuilder = new StateBuilder();
             const config: StateConfig = utils.buildStateConfig(utils.NAME, utils.TYPE, utils.RESOURCE, utils.METHOD);
             const result: State = builder.buildFromConfig(config);
@@ -60,7 +60,7 @@ describe('@StateBuilder class test', () => {
             expect(result.transitions).to.equal(utils.TRANSITIONS);
         });
         
-        it('buildFromConfig() should throw an error if type is "controller" and method  is not "GET"', () => {
+        it('buildFromConfig() should throw an error if type is "controller" and method  is not "POST"', () => {
             const builder: StateBuilder = new StateBuilder();
             const config: StateConfig = utils.buildStateConfig(utils.NAME, StateType.CONTROLLER, utils.RESOURCE, HttpMethod.GET);
             const shouldThrowError: Function = () => {

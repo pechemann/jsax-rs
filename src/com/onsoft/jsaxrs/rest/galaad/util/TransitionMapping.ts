@@ -1,4 +1,4 @@
-import { LinkType } from "../../hateoas/LinkType";
+import { LinkType } from '../../hateoas/LinkType';
 
 /**
  * The <code>TransitionMapping</code> interface allows to declare links between <code>Transition</code> and

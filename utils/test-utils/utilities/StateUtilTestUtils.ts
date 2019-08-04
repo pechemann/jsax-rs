@@ -14,8 +14,8 @@ export const TRANSITION: Transition = {
 }
 
 export const STATE: State = {
-    name: 'name',
-    type: StateType.COLLECTION,
-    resource: '/path/to/resource',
-    method: HttpMethod.GET
- }
+   name: 'name',
+   type: StateType.COLLECTION,
+   resource: '/path/to/resource',
+   method: HttpMethod.GET
+}
