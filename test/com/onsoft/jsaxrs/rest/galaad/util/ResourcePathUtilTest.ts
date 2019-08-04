@@ -83,6 +83,5 @@ describe('@ResourcePathUtil class test', () => {
             const result: string = pathUtil.setSegmentParams(path, params);
             expect(result).to.equal('path/to/api');
         });
-        
     });
 });

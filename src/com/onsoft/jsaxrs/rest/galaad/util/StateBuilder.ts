@@ -37,12 +37,6 @@ export class StateBuilder {
                 state.method = method
             }
         }
-        /* Controllers can only be invoked with POST HTTP method:
-        else {
-            if (type === StateType.CONTROLLER) {
-                state.method = HttpMethod.POST;
-            }
-        }*/
         if (transitions) {
             state.transitions = transitions;
         }
