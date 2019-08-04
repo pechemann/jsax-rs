@@ -32,5 +32,11 @@ export enum HateoasContextErrorCode {
     /**
      * Specifies that the current transition mapping is not valid.
      */
-    INVALID_TRANSITION_MAPPING = 'INVALID_TRANSITION_MAPPING'
+    INVALID_TRANSITION_MAPPING = 'INVALID_TRANSITION_MAPPING',
+    
+    /**
+     * Specifies that the current state reference is not valid.
+     */
+    INVALID_STATE_REFERENCE = 'INVALID_STATE_REFERENCE'
+    
 }

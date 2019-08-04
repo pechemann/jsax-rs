@@ -27,21 +27,31 @@ class HateoasContextImpl {
     }
     getApplicationState(stateName) {
         const result = this.APP_BUILDER.buildFromContext(this.CONTEXT);
-        result.state = this.STATES.get(stateName);
+        if (this.STATES.has(stateName)) {
+            result.state = this.STATES.get(stateName);
+        }
+        else {
+            throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_STATE_REFERENCE, `State does not exist in the application context: state=${stateName}`);
+        }
         return result;
     }
     getResourceStateRepresentation(stateName, parameters) {
         const result = this.APP_UTIL.createAppRepresentationFromContext(this.CONTEXT);
-        const stateRepresentation = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
-        const transitions = stateRepresentation.transitions;
-        stateRepresentation.resource =
-            this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
-        result.state = stateRepresentation;
-        if (transitions) {
-            transitions.forEach((transition) => {
-                transition.resource =
-                    this.RESOURCE_PATH_UTIL.setSegmentParams(transition.resource, parameters);
-            });
+        if (this.STATES.has(stateName)) {
+            const stateRepresentation = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
+            const transitions = stateRepresentation.transitions;
+            stateRepresentation.resource =
+                this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
+            result.state = stateRepresentation;
+            if (transitions) {
+                transitions.forEach((transition) => {
+                    transition.resource =
+                        this.RESOURCE_PATH_UTIL.setSegmentParams(transition.resource, parameters);
+                });
+            }
+        }
+        else {
+            throw new HateoasContextError_1.HateoasContextError(HateoasContextErrorCode_1.HateoasContextErrorCode.INVALID_STATE_REFERENCE, `State does not exist in the application context: state=${stateName}`);
         }
         return result;
     }

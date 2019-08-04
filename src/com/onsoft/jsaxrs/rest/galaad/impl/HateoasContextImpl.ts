@@ -72,7 +72,14 @@ export class HateoasContextImpl implements HateoasContext {
      */
     public getApplicationState(stateName: string): Application {
         const result: Application = this.APP_BUILDER.buildFromContext(this.CONTEXT);
-        result.state = this.STATES.get(stateName);
+        if (this.STATES.has(stateName)) {
+            result.state = this.STATES.get(stateName);
+        } else {
+            throw new HateoasContextError(
+                HateoasContextErrorCode.INVALID_STATE_REFERENCE,
+                `State does not exist in the application context: state=${stateName}`
+            );
+        }
         return result;
     }
 
@@ -81,16 +88,23 @@ export class HateoasContextImpl implements HateoasContext {
      */
     public getResourceStateRepresentation(stateName: string, parameters?: { [name: string]: any }): any {
         const result: any = this.APP_UTIL.createAppRepresentationFromContext(this.CONTEXT);
-        const stateRepresentation: any = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
-        const transitions = stateRepresentation.transitions;
-        stateRepresentation.resource = 
-            this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
-        result.state = stateRepresentation;
-        if (transitions) {
-            transitions.forEach((transition:  any)=> {
-                transition.resource = 
-                    this.RESOURCE_PATH_UTIL.setSegmentParams(transition.resource, parameters);
-            });
+        if (this.STATES.has(stateName)) {
+            const stateRepresentation: any = this.STATE_UTIL.createStateRepresentation(this.STATES.get(stateName));
+            const transitions = stateRepresentation.transitions;
+            stateRepresentation.resource = 
+                this.RESOURCE_PATH_UTIL.setSegmentParams(stateRepresentation.resource, parameters);
+            result.state = stateRepresentation;
+            if (transitions) {
+                transitions.forEach((transition: any)=> {
+                    transition.resource = 
+                        this.RESOURCE_PATH_UTIL.setSegmentParams(transition.resource, parameters);
+                });
+            }
+        } else {
+            throw new HateoasContextError(
+                HateoasContextErrorCode.INVALID_STATE_REFERENCE,
+                `State does not exist in the application context: state=${stateName}`
+            );
         }
         return result;
     }

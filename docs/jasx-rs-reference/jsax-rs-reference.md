@@ -21,6 +21,7 @@ The JSAX-RS technology and the following reference are based upon the works by R
       1. [Application Interface](./jsax-rs-application-interface.md)
       1. [State Interface](./jsax-rs-state-interface.md)
       1. [Transition Interface](./jsax-rs-transition-interface.md)
+      1. [Error Codes](./jsax-rs-hatoeas-error-codes.md)
    - Galaad Framework
       1. [Overview](./jsax-rs-galaad-overview.md)
       1. [@RsApplication Decorator](./jsax-rs-galaad-rsapplication.md)
