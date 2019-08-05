@@ -7,6 +7,11 @@ import { TransitionMapping } from '../../../src/com/onsoft/jsaxrs/rest/galaad/ut
 import { State } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/State';
 import { Transition } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/Transition';
 import { ApplicationConfig } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/config/ApplicationConfig';
+import { StateConfig } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/config/StateConfig';
+import { StateType } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/StateType';
+import { HttpMethod } from '../../../src/com/onsoft/jsaxrs/lang/net/http/HttpMethod';
+import { TransitionConfig } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/config/TransitionConfig';
+import { LinkType } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/LinkType';
 
 // Utilities:
 // destroy the current Galaad instance
@@ -42,3 +47,34 @@ export function createConfig(): ApplicationConfig {
         version: '1.0.0'
     };
 }
+
+// return a StateConfig object
+export function getStateConfig(): StateConfig {
+    return {
+        name: 'stateName',
+        type: StateType.COLLECTION,
+        resource: '/path/to/resource',
+        method: HttpMethod.GET
+    };
+};
+
+// return a TransitionConfig object
+export function getTransitionConfig(): TransitionConfig {
+    return {
+        name: 'transitionName',
+        type: StateType.COLLECTION,
+        resource: '/path/to/resource',
+        method: HttpMethod.GET,
+        stateRef: 'stateRef',
+        rel: LinkType.NEXT
+    };
+};
+
+// return a TransitionMapping object
+export function getTransitionMapping(): TransitionMapping {
+    return {
+        stateRef: 'stateRef',
+        transitionRef: 'transitionRef',
+        rel: LinkType.NEXT
+    };
+};
