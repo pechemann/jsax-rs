@@ -32,6 +32,10 @@ The JSAX-RS technology and the following reference are based upon the works by R
       1. [@RsMapTransition Decorator](./jsax-rs-galaad-rsmaptransition.md)
       1. [Application State Representation](./jsax-rs-galaad-application-state-representation.md)
 
+## Sample Application
+
+The [Galaad sample application](https://github.com/pechemann/galaad-sample) demonstrates how to integrate the JSAX-RS HATOEAS API into an [Express](https://expressjs.com/) web app.
+
 ## References
 
 - **[FIELDING, 2000]**: FIELDING, Roy Thomas. Architectural Styles and the Design of Network-based Software ArchitecturesDoctoral dissertation, University of California, Irvine, 2000.
