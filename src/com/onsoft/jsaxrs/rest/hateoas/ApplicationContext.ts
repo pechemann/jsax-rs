@@ -11,11 +11,11 @@ export interface ApplicationContext {
     getName(): string;
 
     /**
-     * Return the application domain.
+     * Return the application authority.
      * 
-     * @returns {string} the application domain.
+     * @returns {string} the application authority.
      */
-    getDomain(): string;
+    getAuthority(): string;
 
     /**
      * Return the path of the application API.

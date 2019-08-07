@@ -42,7 +42,7 @@ export function getCreateTransitionList(): Array<TransitionMapping> {
 export function createConfig(): ApplicationConfig {
     return {
         name: 'app-name',
-        domain: 'http://domain.com',
+        authority: 'my-domain.com',
         apiPath: 'api',
         version: '1.0.0'
     };

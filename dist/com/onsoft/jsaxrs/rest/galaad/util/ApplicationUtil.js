@@ -5,8 +5,8 @@ class ApplicationUtil {
         let result = {};
         result.name = application.name;
         result.state = application.state;
-        if (application.domain) {
-            result.domain = application.domain;
+        if (application.authority) {
+            result.authority = application.authority;
         }
         if (application.apiPath) {
             result.apiPath = application.apiPath;
@@ -22,9 +22,9 @@ class ApplicationUtil {
         if (prop) {
             result.name = prop;
         }
-        prop = context.getDomain();
+        prop = context.getAuthority();
         if (prop) {
-            result.domain = prop;
+            result.authority = prop;
         }
         prop = context.getApiPath();
         if (prop) {

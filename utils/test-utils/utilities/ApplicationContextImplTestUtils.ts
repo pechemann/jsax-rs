@@ -7,7 +7,7 @@ import { ApplicationConfig } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/c
 // Utilities:
 export const CONFIG: ApplicationConfig = {
     name: 'app-name',
-    domain: 'http://my-domain.com',
+    authority: 'my-domain.com',
     apiPath: 'api',
     version: '1.0.0'
 };

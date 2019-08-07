@@ -66,7 +66,7 @@ describe('@Galaad test', () => {
             expect(context.getName()).to.equal(config.name);
             expect(context.getApiPath()).to.equal(config.apiPath);
             expect(context.getApiVersion()).to.equal(config.version);
-            expect(context.getDomain()).to.equal(config.domain);
+            expect(context.getAuthority()).to.equal(config.authority);
         });
     });
 

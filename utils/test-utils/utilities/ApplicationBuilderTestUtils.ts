@@ -10,7 +10,7 @@ import { ApplicationContextImpl } from '../../../src/com/onsoft/jsaxrs/rest/gala
 
 // Utilities:
 export const NAME: string = 'app-name';
-export const DOMAIN: string = 'http://my-domain.com';
+export const AUTHORITY: string = 'my-domain.com';
 export const API_PATH: string = 'api';
 export const VERSION: string = '1.0.0';
 export const STATE: State = {
@@ -20,7 +20,7 @@ export const STATE: State = {
 };
 export const CONTEXT: ApplicationContext = new ApplicationContextImpl({
     name: NAME,
-    domain: DOMAIN,
+    authority: AUTHORITY,
     apiPath: API_PATH,
     version: VERSION
 });

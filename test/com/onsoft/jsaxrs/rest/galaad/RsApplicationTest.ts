@@ -43,10 +43,10 @@ describe('@RsApplication decorator test', () => {
             expect(Galaad.getInstance().getContext().getApplicationContext().getName()).to.equal(config.name);
         });
 
-        it('@RsApplication should create an application context with domain equals to config domain', () => {
+        it('@RsApplication should create an application context with authority equals to config authority', () => {
             const config: ApplicationConfig = galaadUtils.createConfig();
             RsApplication(config);
-            expect(Galaad.getInstance().getContext().getApplicationContext().getDomain()).to.equal(config.domain);
+            expect(Galaad.getInstance().getContext().getApplicationContext().getAuthority()).to.equal(config.authority);
         });
 
         it('@RsApplication should create an application context with API path equals to config API path', () => {

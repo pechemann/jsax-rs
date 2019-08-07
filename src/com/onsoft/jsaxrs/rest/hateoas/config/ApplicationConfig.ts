@@ -10,9 +10,9 @@ export interface ApplicationConfig {
     name: string;
 
     /**
-     * The domain of the application declaration.
+     * The authority of the application declaration.
      */
-    domain?: string;
+    authority?: string;
     
     /**
      * The path to the application API.

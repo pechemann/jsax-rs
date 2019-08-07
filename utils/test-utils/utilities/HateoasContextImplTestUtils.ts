@@ -39,7 +39,7 @@ export const STATE_2: State = {
 };
 export const CONTEXT: ApplicationContext = new ApplicationContextImpl({
     name: 'app-name',
-    domain: 'http://my-domain.com',
+    authority: 'my-domain.com',
     apiPath: 'api',
     version: '1.0.0'
 });

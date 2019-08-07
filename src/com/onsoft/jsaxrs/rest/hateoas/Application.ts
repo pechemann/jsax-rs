@@ -11,9 +11,9 @@ export interface Application {
     name: string;
 
     /**
-     * The domain of the application.
+     * The authority of the application.
      */
-    domain?: string;
+    authority?: string;
 
     /**
      * The path to the application API.

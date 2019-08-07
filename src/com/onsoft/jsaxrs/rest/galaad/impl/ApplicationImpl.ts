@@ -19,7 +19,7 @@ export class ApplicationImpl implements Application {
     /**
      * @inheritdoc
      */
-    public readonly domain?: string = null;
+    public readonly authority?: string = null;
 
     /**
      * @inheritdoc
@@ -35,13 +35,13 @@ export class ApplicationImpl implements Application {
      * Create a new <code>ApplicationImpl</code> instance.
      * 
      * @param {string} name the reference name of the application.
-     * @param {string} domain the domain of the application.
+     * @param {string} authority the authority of the application.
      * @param {string} apiPath the path to the application API.
      * @param {string} version the version of the application API.
      */
-    constructor(name: string, domain: string, apiPath: string, version: string) {
+    constructor(name: string, authority: string, apiPath: string, version: string) {
         this.name = name;
-        this.domain = domain;
+        this.authority = authority;
         this.apiPath = apiPath;
         this.version = version;
     }

@@ -32,10 +32,13 @@ export class SampleApplication {
 The `@RsApplication` decorator accepts objects of the type of `ApplicationConfig` as parameter. The `ApplicationConfig` interface defines the same properties as the [`Application` interface](./jsax-rs-application-interface.md):
 
 - `name`: the reference name of the application declaration
-- `domain`: the domain of the application declaration
+- `authority`: the authority of the application declaration
 - `apiPath`: the path to the application API
 - `version`: the version of the application API
+- `protocol`: the protocol used for transactions
 
-The `domain`, `apiPath` and `version` parameters are optional.
+The `authority`, `apiPath` and `version` parameters are optional.
+
+The `protocol` parameter is optional and its default value is `http`. You typically never use this parameter.
 
 Only one `@RsApplication` decorator declaration is allowed by application.

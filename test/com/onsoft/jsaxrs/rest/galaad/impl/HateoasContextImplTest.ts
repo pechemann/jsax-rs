@@ -71,10 +71,10 @@ describe('HateoasContextImpl class', () => {
             expect(representation.name).to.equal(utils.CONTEXT.getName());
         });
         
-        it('should return a resource state representation for the correct app domain', () => {
+        it('should return a resource state representation for the correct app authority', () => {
             const context: HateoasContext = new HateoasContextImpl(utils.CONTEXT, [utils.STATE_1, utils.STATE_2]);
             const representation: any = context.getResourceStateRepresentation(utils.STATE_1.name);
-            expect(representation.domain).to.equal(utils.CONTEXT.getDomain());
+            expect(representation.authority).to.equal(utils.CONTEXT.getAuthority());
         });
 
         it('should return a resource state representation for the correct app version', () => {

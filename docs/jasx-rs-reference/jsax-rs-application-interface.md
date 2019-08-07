@@ -12,7 +12,7 @@ Objects that implement the `Application` interface represent the state of an app
 
 ## Name Identifier
 
-The name property is a functional string used to identify an application. Because only domain names are unique, name identifiers cannot be used to guarantee uniqueness of applications.
+The name property is a functional string used to identify an application. Because only _domain_ names are unique, name identifiers cannot be used to guarantee uniqueness of applications.
 
 This property is required.
 
@@ -20,9 +20,10 @@ This property is required.
 
 The application root path is composed of the URI scheme, the authority, the API path and the API version, as  defined by [RFC 3986](https://tools.ietf.org/html/rfc3986). The `Application` interface defined the following properties to compose the app root  path:
 
-- domain: the concatenation of scheme and authority
-- apiPath: the path to the app API
-- version: the app API version
+- `authority`: the app authority
+- `apiPath`: the path to the app API
+- `version`: the app API version
+- `protocol`: the network protocol of the application; default value is `http`
 
 All of the application root path properties are optional.
 

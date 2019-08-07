@@ -13,22 +13,22 @@ import * as utils from '../../../../../../../utils/test-utils/utilities/Applicat
 describe('ApplicationImpl class', () => {
 
     it('ApplicationImpl should have the same name as the name passed in constructor parameter', () => {
-        const application: Application = new ApplicationImpl(utils.NAME, utils.DOMAIN, utils.API_PATH, utils.VERSION);
+        const application: Application = new ApplicationImpl(utils.NAME, utils.AUTHORITY, utils.API_PATH, utils.VERSION);
         expect(application.name).to.equal(utils.NAME);
     });
     
-    it('ApplicationImpl should have the same domain as the domain passed in constructor parameter', () => {
-        const application: Application = new ApplicationImpl(utils.NAME, utils.DOMAIN, utils.API_PATH, utils.VERSION);
-        expect(application.domain).to.equal(utils.DOMAIN);
+    it('ApplicationImpl should have the same authority as the authority passed in constructor parameter', () => {
+        const application: Application = new ApplicationImpl(utils.NAME, utils.AUTHORITY, utils.API_PATH, utils.VERSION);
+        expect(application.authority).to.equal(utils.AUTHORITY);
     });
     
     it('ApplicationImpl should have the same api path as the api path passed in constructor parameter', () => {
-        const application: Application = new ApplicationImpl(utils.NAME, utils.DOMAIN, utils.API_PATH, utils.VERSION);
+        const application: Application = new ApplicationImpl(utils.NAME, utils.AUTHORITY, utils.API_PATH, utils.VERSION);
         expect(application.apiPath).to.equal(utils.API_PATH);
     });
     
     it('ApplicationImpl should have the same version as the version passed in constructor parameter', () => {
-        const application: Application = new ApplicationImpl(utils.NAME, utils.DOMAIN, utils.API_PATH, utils.VERSION);
+        const application: Application = new ApplicationImpl(utils.NAME, utils.AUTHORITY, utils.API_PATH, utils.VERSION);
         expect(application.version).to.equal(utils.VERSION);
     });
 });

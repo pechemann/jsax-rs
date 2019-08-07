@@ -1,7 +1,5 @@
 :arrow_forward: [JSAX-RS Documentation](./jsax-rs-reference.md) > REST API > HATOEAS API > JSAX-RS Design
 
-**[WIP]**
-
 # JSAX-RS HATOEAS API Design
 
 ## Overview
@@ -50,7 +48,7 @@ _Figure 3: JSAX-RS HATEOAS API result sample_
     "application": {
         "name": "helios",
         "version": "1.0",
-        "domain": "http://api.sample-app.com",
+        "authority": "api.sample-app.com",
         "state": {
             "name": "helloUser",
             "type": "document",
@@ -94,7 +92,7 @@ But, the use of a uniform structure solves these issues. If the client [WIP]
 
 ### Semantic information
 
-Semantic information provides more flexibility without addition of any contextual knowledge from the API. A well-designed semantic dictionary, adopted by both clients and APIs, introduces ability to design of more complex interactions between components and guarantees the API robustness.
+Semantic information provides more flexibility without addition of any contextual knowledge from the API. A well-designed semantic dictionary, adopted by both clients and APIs, introduces ability to design more complex interactions between components and guarantees the API robustness.
 
 For example, let us consider transitions shown in Figures 4 and 5:
 
@@ -123,11 +121,9 @@ _Figure 5: transition with method definition_
 
 _Figure 4_ means that client have to invoke the HTTP `OPTION` method to know what possible actions to do with this transtion. But, _Figure 5_ indicates that client must invoke the HTTP `GET` method to ensure expected behavior between current state and the state specified by this transtion.
 
+_Figure 6_ shows another example of semantic benefits, based on transition type inference. In this use case, transition defines the possibility to navigate to a resource with an archetype of the type of `controller`. Thus, we do not need to precise the kind of method to use, because because `controller` archetypes can be accessed by using only HTTP `POST` methods.
 
-[WIP]
-
-
-_Figure 6: transition to a controller resource_
+_Figure 6: transition to a "controller" resource_
 
 ```json
 "state": [
@@ -143,4 +139,31 @@ _Figure 6: transition to a controller resource_
         ]
     }
 ]
+```
+
+## Design Abstraction
+
+Contrary to common misconceptions, REST does not depends on HTTP protocol. So, many parts of the JSAX-RS HATEOAS API have been designed to be extendable.
+
+### The Application `protocol` Property
+
+_Figure 3_ shows a standard application that definestransactions over HTTP. JSAX-RS HATEOAS provides a protocol property that can be used to indicate that transactions are performed by using another kind of network protocol:
+
+_Figure 7: Dummy protocol sample_
+
+```json
+{
+    "content": "Hello, User!",
+    "application": {
+        "name": "sample-app",
+        "version": "1.0",
+        "authority": "api.sample-app.rnp",
+        "protocol": "rest-np",
+        "state": {
+            "name": "helloUser",
+            "type": "document",
+            "resource": "@ greeting // name (User);"
+        }
+    }
+}
 ```

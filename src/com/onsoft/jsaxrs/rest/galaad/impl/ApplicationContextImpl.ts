@@ -12,9 +12,9 @@ export class ApplicationContextImpl implements ApplicationContext {
     private readonly NAME: string = null;
 
     /**
-     * The application domain.
+     * The application authority.
      */
-    private readonly DOMAIN: string = null;
+    private readonly AUTHORITY: string = null;
 
     /**
      * The path of the application API.
@@ -34,7 +34,7 @@ export class ApplicationContextImpl implements ApplicationContext {
      */
     constructor(config: ApplicationConfig) {
         this.NAME = config.name;
-        this.DOMAIN = config.domain;
+        this.AUTHORITY = config.authority;
         this.API_PATH = config.apiPath;
         this.VERSION = config.version;
     }
@@ -49,8 +49,8 @@ export class ApplicationContextImpl implements ApplicationContext {
     /**
      * @inheritdoc
      */
-    public getDomain(): string {
-        return this.DOMAIN;
+    public getAuthority(): string {
+        return this.AUTHORITY;
     }
 
     /**

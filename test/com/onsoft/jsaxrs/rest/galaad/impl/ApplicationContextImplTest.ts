@@ -27,8 +27,8 @@ describe('ApplicationContextImpl class', () => {
         expect(context.getApiVersion()).to.equal(utils.CONFIG.version);
     });
     
-    it('#getName() should return the same domain as the config domain', () => {
+    it('#getName() should return the same authority as the config authority', () => {
         const context: ApplicationContext = new ApplicationContextImpl(utils.CONFIG);
-        expect(context.getDomain()).to.equal(utils.CONFIG.domain);
+        expect(context.getAuthority()).to.equal(utils.CONFIG.authority);
     });
 });
