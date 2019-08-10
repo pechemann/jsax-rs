@@ -14,9 +14,13 @@ class ApplicationUtil {
         if (application.version) {
             result.version = application.version;
         }
+        if (application.protocol) {
+            result.protocol = application.protocol;
+        }
         return result;
     }
     createAppRepresentationFromContext(context) {
+        const protocol = context.getProtocol();
         let result = {};
         let prop = context.getName();
         if (prop) {
@@ -33,6 +37,10 @@ class ApplicationUtil {
         prop = context.getApiVersion();
         if (prop) {
             result.version = prop;
+        }
+        prop = context.getApiVersion();
+        if (protocol) {
+            result.protocol = protocol;
         }
         return result;
     }
