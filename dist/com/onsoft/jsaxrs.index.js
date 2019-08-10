@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var HttpMethod_1 = require("./jsaxrs/lang/net/http/HttpMethod");
 exports.HttpMethod = HttpMethod_1.HttpMethod;
+var HttpProtocol_1 = require("./jsaxrs/lang/net/http/HttpProtocol");
+exports.HttpProtocol = HttpProtocol_1.HttpProtocol;
 var HttpStatusCode_1 = require("./jsaxrs/lang/net/http/HttpStatusCode");
 exports.HttpStatusCode = HttpStatusCode_1.HttpStatusCode;
 var Galaad_1 = require("./jsaxrs/rest/galaad/core/Galaad");

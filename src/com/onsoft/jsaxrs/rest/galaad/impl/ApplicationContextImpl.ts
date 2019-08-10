@@ -1,5 +1,6 @@
 import { ApplicationContext } from '../../hateoas/ApplicationContext';
 import { ApplicationConfig } from '../../hateoas/config/ApplicationConfig';
+import { HttpProtocol } from '../../../lang/net/http/HttpProtocol';
 
 /**
  * The default implementation fo the <code>ApplicationContext</code> interface.
@@ -15,6 +16,11 @@ export class ApplicationContextImpl implements ApplicationContext {
      * The application authority.
      */
     private readonly AUTHORITY: string = null;
+
+    /**
+     * The application protocol.
+     */
+    private readonly PROTOCOL: HttpProtocol | any = null;
 
     /**
      * The path of the application API.
@@ -37,6 +43,7 @@ export class ApplicationContextImpl implements ApplicationContext {
         this.AUTHORITY = config.authority;
         this.API_PATH = config.apiPath;
         this.VERSION = config.version;
+        this.PROTOCOL = config.protocol;
     }
 
     /**
@@ -51,6 +58,13 @@ export class ApplicationContextImpl implements ApplicationContext {
      */
     public getAuthority(): string {
         return this.AUTHORITY;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public getProtocol(): HttpProtocol | any {
+        return this.PROTOCOL;
     }
 
     /**

@@ -9,6 +9,7 @@ import { Transition } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/Transiti
 import { HttpMethod } from '../../../src/com/onsoft/jsaxrs/lang/net/http/HttpMethod';
 import { ApplicationContext } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/ApplicationContext';
 import { ApplicationContextImpl } from '../../../src/com/onsoft/jsaxrs/rest/galaad/impl/ApplicationContextImpl';
+import { HttpProtocol } from '../../../src/com/onsoft/jsaxrs/lang/net/http/HttpProtocol';
 
 // Utilities:
 
@@ -41,5 +42,6 @@ export const CONTEXT: ApplicationContext = new ApplicationContextImpl({
     name: 'app-name',
     authority: 'my-domain.com',
     apiPath: 'api',
-    version: '1.0.0'
+    version: '1.0.0',
+    protocol: HttpProtocol.HTTP
 });

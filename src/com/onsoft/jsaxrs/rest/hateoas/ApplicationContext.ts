@@ -1,3 +1,5 @@
+import { HttpProtocol } from '../../lang/net/http/HttpProtocol';
+
 /**
  * The <code>ApplicationContext</code> interface represents the context of an application managed by Hypermedia.
  */
@@ -16,6 +18,13 @@ export interface ApplicationContext {
      * @returns {string} the application authority.
      */
     getAuthority(): string;
+
+    /**
+     * Return the application protocol.
+     * 
+     * @returns {HttpProtocol | any} the application protocol.
+     */
+    getProtocol(): HttpProtocol | any;
 
     /**
      * Return the path of the application API.

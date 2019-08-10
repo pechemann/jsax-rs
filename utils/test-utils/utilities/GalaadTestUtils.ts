@@ -12,6 +12,7 @@ import { StateType } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/StateType
 import { HttpMethod } from '../../../src/com/onsoft/jsaxrs/lang/net/http/HttpMethod';
 import { TransitionConfig } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/config/TransitionConfig';
 import { LinkType } from '../../../src/com/onsoft/jsaxrs/rest/hateoas/LinkType';
+import { HttpProtocol } from '../../../src/com/onsoft/jsaxrs.index';
 
 // Utilities:
 // destroy the current Galaad instance
@@ -44,7 +45,8 @@ export function createConfig(): ApplicationConfig {
         name: 'app-name',
         authority: 'my-domain.com',
         apiPath: 'api',
-        version: '1.0.0'
+        version: '1.0.0',
+        protocol:  HttpProtocol.HTTP
     };
 }
 

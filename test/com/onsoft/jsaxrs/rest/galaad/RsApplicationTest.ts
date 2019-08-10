@@ -60,5 +60,11 @@ describe('@RsApplication decorator test', () => {
             RsApplication(config);
             expect(Galaad.getInstance().getContext().getApplicationContext().getApiVersion()).to.equal(config.version);
         });
+        
+        it('@RsApplication should create an application context with API protocol equals to config protocol', () => {
+            const config: ApplicationConfig = galaadUtils.createConfig();
+            RsApplication(config);
+            expect(Galaad.getInstance().getContext().getApplicationContext().getProtocol()).to.equal(config.protocol);
+        });
     });
 });

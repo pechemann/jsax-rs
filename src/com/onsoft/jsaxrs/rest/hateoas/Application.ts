@@ -1,4 +1,5 @@
 import { State } from './State';
+import { HttpProtocol } from '../../lang/net/http/HttpProtocol';
 
 /**
  * The <code>Application</code> interface represents an application managed by Hypermedia.
@@ -14,6 +15,11 @@ export interface Application {
      * The authority of the application.
      */
     authority?: string;
+
+    /**
+     * The protocol used to converse with the applicaton.
+     */
+    protocol?: HttpProtocol | any;
 
     /**
      * The path to the application API.

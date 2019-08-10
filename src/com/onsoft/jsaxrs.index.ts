@@ -7,6 +7,7 @@
 
 //--> com/onsoft/jsaxrs/lang/net/http
 export { HttpMethod } from './jsaxrs/lang/net/http/HttpMethod';
+export { HttpProtocol } from './jsaxrs/lang/net/http/HttpProtocol';
 export { HttpStatusCode } from './jsaxrs/lang/net/http/HttpStatusCode';
 
 //--> com/onsoft/jsaxrs/rest/gallad/core

@@ -2,6 +2,7 @@ import { Application } from '../../hateoas/Application';
 import { ApplicationImpl } from '../impl/ApplicationImpl';
 import { State } from '../../hateoas/State';
 import { ApplicationContext } from '../../hateoas/ApplicationContext';
+import { HttpMethod } from '../../../lang/net/http/HttpMethod';
 
 /**
  * A basic builder for creating new <code>Application</code> objects, based on the Gallad default implementation.
@@ -13,14 +14,16 @@ export class ApplicationBuilder {
      * 
      * @param {string} name the reference name of the application.
      * @param {string} authority the authority of the application.
+     * @param {HttpMethod | any} protocol the protocol of the application.
      * @param {string} apiPath the path to the application API.
      * @param {string} version the version of the application API.
      * @param {State} state the current state of the application.
      * 
      * @returns {Application} a new <code>Application</code> object.
      */
-    public build(name: string, authority: string, apiPath?: string, version?: string, state?: State): Application {
-        const app: Application = new ApplicationImpl(name, authority, apiPath, version);
+    public build(name: string, authority: string, protocol: HttpMethod | any, apiPath?: string, version?: string,
+                 state?: State): Application {
+        const app: Application = new ApplicationImpl(name, authority, apiPath, version, protocol);
         if (state) {
             app.state = state;
         }
@@ -37,7 +40,11 @@ export class ApplicationBuilder {
      */
     public buildFromContext(context: ApplicationContext, state?: State): Application {
         const app: Application = new ApplicationImpl(
-            context.getName(), context.getAuthority(), context.getApiPath(), context.getApiVersion()
+            context.getName(),
+            context.getAuthority(),
+            context.getApiPath(),
+            context.getApiVersion(),
+            context.getProtocol()
         );
         if (state) {
             app.state = state;

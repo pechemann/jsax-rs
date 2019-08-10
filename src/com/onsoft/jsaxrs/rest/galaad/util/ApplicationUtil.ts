@@ -1,5 +1,6 @@
 import { Application } from '../../hateoas/Application';
 import { ApplicationContext } from '../../hateoas/ApplicationContext';
+import { HttpProtocol } from '../../../lang/net/http/HttpProtocol';
 
 /**
  * A utility class for working with <code>Application</code> objects, based on the Gallad default implementation.
@@ -27,6 +28,9 @@ export class ApplicationUtil {
         if (application.version) {
             result.version = application.version;
         }
+        if (application.protocol) {
+            result.protocol = application.protocol;
+        }
         return result;
     }
     
@@ -39,6 +43,7 @@ export class ApplicationUtil {
      * @returns {any} a new POJO representation of the application defined by the specified context.
      */
     public createAppRepresentationFromContext(context: ApplicationContext): any {
+        const protocol: HttpProtocol | any = context.getProtocol();
         let result: any = {};
         let prop: string = context.getName();
         if (prop) {
@@ -55,6 +60,10 @@ export class ApplicationUtil {
         prop = context.getApiVersion();
         if (prop) {
             result.version = prop;
+        }
+        prop = context.getApiVersion();
+        if (protocol) {
+            result.protocol = protocol;
         }
         return result;
     }

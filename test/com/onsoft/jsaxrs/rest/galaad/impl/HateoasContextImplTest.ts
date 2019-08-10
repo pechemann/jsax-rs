@@ -77,6 +77,12 @@ describe('HateoasContextImpl class', () => {
             expect(representation.authority).to.equal(utils.CONTEXT.getAuthority());
         });
 
+        it('should return a resource state representation for the correct app protocol', () => {
+            const context: HateoasContext = new HateoasContextImpl(utils.CONTEXT, [utils.STATE_1, utils.STATE_2]);
+            const representation: any = context.getResourceStateRepresentation(utils.STATE_1.name);
+            expect(representation.protocol).to.equal(utils.CONTEXT.getProtocol());
+        });
+
         it('should return a resource state representation for the correct app version', () => {
             const context: HateoasContext = new HateoasContextImpl(utils.CONTEXT, [utils.STATE_1, utils.STATE_2]);
             const representation: any = context.getResourceStateRepresentation(utils.STATE_1.name);
