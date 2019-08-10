@@ -147,7 +147,7 @@ Contrary to common misconceptions, REST does not depends on HTTP protocol. So, m
 
 ### The Application `protocol` Property
 
-_Figure 3_ shows a standard application that definestransactions over HTTP. JSAX-RS HATEOAS provides a protocol property that can be used to indicate that transactions are performed by using another kind of network protocol:
+_Figure 3_ shows a standard application that defines transactions over HTTP. JSAX-RS HATEOAS provides a protocol property which allows to indicates whether the app uses basic, or secured, transfer protocol. But, it also can be used to indicate that transactions are performed by using another kind of transfer protocol:
 
 _Figure 7: Dummy protocol sample_
 
@@ -158,12 +158,30 @@ _Figure 7: Dummy protocol sample_
         "name": "sample-app",
         "version": "1.0",
         "authority": "api.sample-app.rnp",
-        "protocol": "rest-np",
+        "protocol": "rest-tps",
         "state": {
             "name": "helloUser",
             "type": "document",
-            "resource": "@ greeting // name (User);"
+            "resource": "/greeting?name=User"
         }
     }
 }
+```
+
+### The `method` Property
+
+As mentioned in _Figure 2 _, `method` property is designed by paying attention to HTTP specification. Thus, it is related to the `HttpMethod` class.
+
+However, `method` does not refer to "HTTP method", but "access method" instead. So, it means that JSAX-RS HATEOAS allows developer to implement any kind of resource access method, depending on the specified protocol:
+
+_Figure 8: custom resource access method implementation_
+
+```json
+"state": [
+    {
+        "type": "collection",
+        "resource": "/documents/ba756938-9e1c-4261-bed3-0898ad8e2a54",
+        "method": "read"
+    }
+]
 ```
